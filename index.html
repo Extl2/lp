@@ -1,16 +1,321 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>オンライン診療LP</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>体重・生活習慣のオンライン相談｜まずはLINEで確認</title>
+  <meta name="description" content="体重や生活習慣について医師にオンラインで相談。まずは自分に合う進め方や費用感をLINEで確認できます。来院不要、相談のみでも可能です。" />
+  <style>
+    :root{
+      --bg:#f6f9fc;
+      --card:#ffffff;
+      --text:#203047;
+      --muted:#66758a;
+      --line:#06c755;
+      --line-dark:#05a847;
+      --accent:#e9f7ef;
+      --soft:#eef5ff;
+      --border:#dfe7f0;
+      --shadow:0 16px 40px rgba(27,51,84,.10);
+      --radius:24px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,"Hiragino Sans","Noto Sans JP","Segoe UI",sans-serif;
+      color:var(--text);
+      line-height:1.75;
+      background:
+        radial-gradient(900px 480px at 0% 0%, rgba(180,225,255,.22), transparent 55%),
+        radial-gradient(900px 480px at 100% 0%, rgba(6,199,85,.10), transparent 55%),
+        var(--bg);
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(255,255,255,.86);
+      border-bottom:1px solid rgba(32,48,71,.08);
+    }
+    .navin{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+    .brand{font-weight:900;font-size:14px}
+    .brand small{display:block;font-weight:700;color:var(--muted);font-size:12px}
+    .navcta{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:999px;background:var(--line);color:#fff;font-weight:900;box-shadow:0 12px 28px rgba(6,199,85,.24)}
+
+    .hero{padding:34px 0 18px}
+    .heroGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}
+    .card{
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .heroMain{padding:34px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--soft);font-size:12px;font-weight:900;color:#39506c;margin-bottom:14px}
+    h1{margin:0 0 14px;font-size:40px;line-height:1.18;letter-spacing:-.02em}
+    .lead{font-size:16px;color:var(--muted);margin:0 0 18px}
+    .pain{
+      display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0;
+    }
+    .pain div{padding:14px;border-radius:18px;background:#f8fbff;border:1px solid var(--border);font-weight:800;color:#41536b}
+    .pointBox{
+      background:linear-gradient(135deg,#f7fff9,#ffffff 55%,#f4f9ff);
+      border:1px solid rgba(6,199,85,.18);
+      border-radius:22px;
+      padding:18px;
+      margin:18px 0;
+    }
+    .pointBox strong{display:block;font-size:18px;margin-bottom:8px}
+    .pointBox ul{margin:0;padding-left:18px;color:#405269}
+    .pointBox li{margin:6px 0}
+    .ctaRow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:16px 24px;border-radius:999px;font-weight:900;
+      transition:.15s ease;white-space:nowrap
+    }
+    .btn.primary{background:linear-gradient(135deg,var(--line),#30d776);color:#fff;box-shadow:0 18px 34px rgba(6,199,85,.24)}
+    .btn.secondary{background:#fff;border:1px solid var(--border);color:var(--text)}
+    .btn:hover{transform:translateY(-1px)}
+    .micro{margin-top:12px;font-size:12px;color:var(--muted);font-weight:700}
+
+    .heroSide{padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+    .trust{
+      display:grid;gap:12px;margin-bottom:16px
+    }
+    .trustCard{padding:16px;border-radius:20px;background:#fff;border:1px solid var(--border)}
+    .trustCard strong{display:block;margin-bottom:4px;font-size:15px}
+    .trustCard span{color:var(--muted);font-size:13px}
+    .doctorBox{
+      padding:18px;border-radius:22px;background:linear-gradient(135deg,#fff,#f5f9ff);
+      border:1px solid var(--border)
+    }
+    .doctorBox h2{margin:0 0 8px;font-size:20px}
+    .doctorBox p{margin:0;color:var(--muted);font-size:14px}
+    .warn{margin-top:16px;padding:14px 16px;border-radius:18px;background:#fff6f6;border:1px solid #f0d5d5;font-size:13px;color:#5e4450}
+
+    section{padding:18px 0}
+    .sectionCard{padding:28px}
+    h2.sec{margin:0 0 10px;font-size:30px;line-height:1.3}
+    .sublead{margin:0 0 18px;color:var(--muted)}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .miniCard{padding:20px;border-radius:22px;background:#fff;border:1px solid var(--border)}
+    .miniCard h3{margin:0 0 8px;font-size:18px}
+    .miniCard p{margin:0;color:var(--muted);font-size:14px}
+    .step{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:18px;background:#fff;border:1px solid var(--border)}
+    .num{width:34px;height:34px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-weight:900;flex:0 0 34px}
+    .step strong{display:block;margin-bottom:4px}
+    .faq details{padding:16px 18px;border-radius:18px;background:#fff;border:1px solid var(--border);margin:10px 0}
+    .faq summary{cursor:pointer;font-weight:900}
+    .faq .ans{margin-top:10px;color:var(--muted);font-size:14px}
+
+    .ctaPanel{
+      padding:30px;
+      background:linear-gradient(135deg,#eef8ff 0%,#ffffff 45%,#eefcf3 100%);
+      display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center
+    }
+    .ctaPanel h2{margin:0 0 10px;font-size:30px;line-height:1.3}
+    .ctaPanel p{margin:0;color:var(--muted)}
+    .footer{padding:24px 0 100px;color:var(--muted);font-size:12px}
+
+    .sticky{
+      position:fixed;left:0;right:0;bottom:0;z-index:30;
+      background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+      border-top:1px solid rgba(32,48,71,.08);padding:10px 0
+    }
+    .stickyIn{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .stickyTxt{font-weight:900;font-size:13px}
+    .stickyTxt span{display:block;color:var(--muted);font-size:12px;font-weight:700}
+
+    @media (max-width: 920px){
+      .heroGrid,.grid3,.grid2,.ctaPanel{grid-template-columns:1fr}
+      h1{font-size:31px}
+      h2.sec,.ctaPanel h2{font-size:24px}
+      .pain{grid-template-columns:1fr}
+      .stickyIn{flex-direction:column;align-items:stretch}
+      .ctaRow .btn,.navcta,.sticky .btn{width:100%}
+    }
+  </style>
 </head>
 <body>
-  <h1>オンライン診療</h1>
-  <p>医師による診察をオンラインで受けられます。</p>
+  <div class="nav">
+    <div class="wrap navin">
+      <div class="brand">体重・生活習慣のオンライン相談<small>来院不要 / 医師が個別に確認</small></div>
+      <a class="navcta" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener">LINEで確認する</a>
+    </div>
+  </div>
 
-  <a href="#">今すぐ予約</a>
+  <header class="hero">
+    <div class="wrap heroGrid">
+      <div class="card heroMain">
+        <div class="badge">まずは相談のみでも可能です</div>
+        <h1>体重や生活習慣について、<br>自分に合う進め方を<br>オンラインで相談できます</h1>
+        <p class="lead">「何から始めればいいかわからない」「いきなり申し込むのは不安」という方に向けて、医師が現在の状態やご希望を確認しながら、無理のない進め方をご案内します。</p>
+
+        <div class="pain">
+          <div>何を選べばいいのかわからない</div>
+          <div>自分に合う方法だけ知りたい</div>
+          <div>費用感を先に確認したい</div>
+          <div>通院せずに相談したい</div>
+        </div>
+
+        <div class="pointBox">
+          <strong>このLINEで確認できること</strong>
+          <ul>
+            <li>自分の悩みが相談対象かどうか</li>
+            <li>オンライン相談の流れと空き状況</li>
+            <li>費用感や進め方の目安</li>
+            <li>いきなり進まず、相談だけで終えてよいか</li>
+          </ul>
+        </div>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener">まずはLINEで相談する</a>
+          <a class="btn secondary" href="#flow">相談の流れを見る</a>
+        </div>
+        <div class="micro">相談のみでも可能です / 無理な案内は行いません / 内容を見てから進むか決められます</div>
+      </div>
+
+      <div class="card heroSide">
+        <div>
+          <div class="trust">
+            <div class="trustCard"><strong>来院不要で相談可能</strong><span>スマートフォンからオンラインで進められます。</span></div>
+            <div class="trustCard"><strong>医師が個別に確認</strong><span>現在の状態やご不安を踏まえてご案内します。</span></div>
+            <div class="trustCard"><strong>相談後に判断でOK</strong><span>内容を確認したうえで進むかどうかを決められます。</span></div>
+          </div>
+
+          <div class="doctorBox">
+            <h2>担当医について</h2>
+            <p>グランエタニティ銀座クリニック 医師 津坂憲政。オンラインでのご相談時も、医師が内容を確認しながらご案内します。</p>
+          </div>
+        </div>
+
+        <div class="warn">本ページはオンライン相談の案内です。内容は個別の状況に応じて医師が判断します。体調や既往歴などにより、ご案内できない場合があります。</div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="card sectionCard">
+        <h2 class="sec">相談LPでも、LINEに来る理由を明確にしています</h2>
+        <p class="sublead">「ただ相談できます」では弱いので、ユーザーが押す理由を先に見せています。</p>
+        <div class="grid3">
+          <div class="miniCard">
+            <h3>理由1：自分に必要か確認できる</h3>
+            <p>いきなり進むのではなく、まず自分の悩みや状況が相談対象か確認できます。</p>
+          </div>
+          <div class="miniCard">
+            <h3>理由2：費用感を見てから判断できる</h3>
+            <p>進め方や目安を把握してから決められるので、押すハードルが下がります。</p>
+          </div>
+          <div class="miniCard">
+            <h3>理由3：売り込まれない安心感</h3>
+            <p>相談だけで終えてもよいことを先に伝え、クリックへの不安を減らしています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="wrap">
+      <div class="card sectionCard">
+        <h2 class="sec">ご利用の流れ</h2>
+        <p class="sublead">いきなり本格的に進む必要はありません。まずは確認から始められます。</p>
+        <div class="grid2">
+          <div class="step"><div class="num">1</div><div><strong>LINEで相談</strong><div class="sublead" style="margin:0">まずは空き状況や相談内容について確認します。</div></div></div>
+          <div class="step"><div class="num">2</div><div><strong>内容と流れを確認</strong><div class="sublead" style="margin:0">自分に合う進め方か、費用感はどうかを把握できます。</div></div></div>
+          <div class="step"><div class="num">3</div><div><strong>必要に応じてオンライン相談へ</strong><div class="sublead" style="margin:0">内容に納得した場合のみ、そのまま次のステップへ進めます。</div></div></div>
+          <div class="step"><div class="num">4</div><div><strong>進むかどうかを判断</strong><div class="sublead" style="margin:0">無理に進めることはなく、確認後にご自身で決められます。</div></div></div>
+        </div>
+        <div class="ctaRow" style="margin-top:20px">
+          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener">空き状況をLINEで確認する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="card sectionCard">
+        <h2 class="sec">こんな方は、まずLINEで確認してください</h2>
+        <div class="grid2">
+          <div class="miniCard">
+            <h3>初めてで不安な方</h3>
+            <p>自分に合うかどうかや、どう進むのかを把握してから判断したい方に向いています。</p>
+          </div>
+          <div class="miniCard">
+            <h3>忙しくて通院しづらい方</h3>
+            <p>来院せずに進めたい方でも、まずはオンラインで相談内容を確認できます。</p>
+          </div>
+          <div class="miniCard">
+            <h3>費用面が気になる方</h3>
+            <p>先に費用感や流れを知りたい方も、LINEで確認してから判断できます。</p>
+          </div>
+          <div class="miniCard">
+            <h3>自分に必要かまだ迷っている方</h3>
+            <p>「今すぐ申し込むほどではない」という段階でも、相談のみでご利用いただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <div class="card sectionCard">
+        <h2 class="sec">よくある質問</h2>
+        <details>
+          <summary>相談したら必ず進まないといけませんか？</summary>
+          <div class="ans">いいえ。まずは内容や流れを確認いただき、必要だと感じた場合のみ次のステップへお進みください。</div>
+        </details>
+        <details>
+          <summary>相談だけでも大丈夫ですか？</summary>
+          <div class="ans">はい。まずは自分に合う内容かを知りたい方のための相談窓口としてご利用いただけます。</div>
+        </details>
+        <details>
+          <summary>来院は必要ですか？</summary>
+          <div class="ans">オンラインで確認できる内容からご案内します。必要な進め方は個別の状況に応じて判断されます。</div>
+        </details>
+        <details>
+          <summary>どんな人でも相談できますか？</summary>
+          <div class="ans">体調や既往歴などにより、ご案内できない場合があります。詳細は医師が確認します。</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="card ctaPanel">
+        <div>
+          <h2>まだ迷っている方も、<br>まずはLINEで確認してください</h2>
+          <p>「自分に必要かどうか」「どのくらいの負担感か」を確認してから、進むかどうかをご自身で決められます。</p>
+        </div>
+        <div>
+          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener">まずはLINEで確認する</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap footer">
+    <div>名称：グランエタニティ銀座クリニック</div>
+    <div>所在地：東京都中央区銀座1-20-14</div>
+    <div>診療形態：オンライン相談・自由診療</div>
+    <div>本ページは一般的な案内であり、内容は医師の判断に基づき個別に決定されます。</div>
+  </div>
+
+  <div class="sticky">
+    <div class="wrap stickyIn">
+      <div class="stickyTxt">相談だけでもOK<span>まずは自分に合う進め方か、LINEで確認できます</span></div>
+      <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener">LINEで確認する</a>
+    </div>
+  </div>
 </body>
 </html>
-
-
