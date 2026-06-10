@@ -9,7 +9,17 @@
   gtag('js', new Date());
 　gtag('config', 'AW-18082226766');
 </script>
-
+<!-- Event snippet for LINEクリック conversion page -->
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[https://lin.ee]').forEach(function(link) {
+      link.addEventListener('click', function(e) {
+        gtag('event', 'conversion', {'send_to': 'AW-18082226766/Yle9CJm6wKIcEM7Eo65D'});
+      });
+    });
+  });
+</script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>体重・生活習慣のオンライン相談｜まずはLINEで無料相談</title>
