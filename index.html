@@ -270,6 +270,24 @@
       .buttons .btn{width:100%}
     }
   </style>
+
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18082226766/CWT5CIqy_dEcEM7Eo65D',
+      'value': 1.0,
+      'currency': 'JPY',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 </head>
 <body>
   <div class="nav">
@@ -285,7 +303,7 @@
         <a class="btn subtle" href="#price">料金</a>
         <a class="btn subtle" href="#flow">流れ</a>
         <a class="btn subtle" href="#faq">FAQ</a>
-        <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="gtag('event','line_click',{event_category:'conversion',event_label:'header_line'});">LINEで空き状況を確認する</a>
+        <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="return gtag_report_conversion('https://lin.ee/nSBG5aT');">LINEで空き状況を確認する</a>
       </div>
     </div>
   </div>
@@ -311,7 +329,7 @@
         </div>
 
         <div class="buttons">
-          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="gtag('event','line_click',{event_category:'conversion',event_label:'hero_main_line'});">LINEで空き状況を確認する</a>
+          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="return gtag_report_conversion('https://lin.ee/nSBG5aT');">LINEで空き状況を確認する</a>
           <a class="btn" href="#faq">よくある質問を見る</a>
         </div>
 
@@ -475,7 +493,7 @@
         </div>
 
         <div class="buttons">
-          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="gtag('event','line_click',{event_category:'conversion',event_label:'flow_line'});">LINEで空き状況を確認する</a>
+          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="return gtag_report_conversion('https://lin.ee/nSBG5aT');">LINEで空き状況を確認する</a>
           <a class="btn" href="#price">料金を見る</a>
         </div>
 
@@ -576,7 +594,7 @@
         </details>
 
         <div class="buttons" style="margin-top:14px">
-          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="gtag('event','line_click',{event_category:'conversion',event_label:'faq_line'});">LINEで空き状況を確認する</a>
+          <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="return gtag_report_conversion('https://lin.ee/nSBG5aT');">LINEで空き状況を確認する</a>
           <a class="btn" href="#clinic">クリニック情報へ</a>
         </div>
       </div>
@@ -590,7 +608,7 @@
           <h3>まずはLINEで、空き状況と流れをご確認ください</h3>
           <p>料金や診療の流れを確認したうえで、そのまま予約へ進めます。ご相談のみでも可能です。</p>
           <div class="buttons">
-            <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="gtag('event','line_click',{event_category:'conversion',event_label:'cta_line'});">LINEで空き状況を確認する</a>
+            <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="return gtag_report_conversion('https://lin.ee/nSBG5aT');">LINEで空き状況を確認する</a>
             <a class="btn" href="#price">料金を見る</a>
           </div>
         </div>
@@ -673,7 +691,7 @@
         <div class="sub">来院不要 / LINEから空き状況を確認</div>
       </div>
       <div>
-        <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="gtag('event','line_click',{event_category:'conversion',event_label:'sticky_line'});">LINEで空き状況を確認する</a>
+        <a class="btn primary" href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener" onclick="return gtag_report_conversion('https://lin.ee/nSBG5aT');">LINEで空き状況を確認する</a>
       </div>
     </div>
   </div>
