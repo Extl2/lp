@@ -17,25 +17,23 @@
 
     gtag('config', 'AW-18082226766');
   </script>
-  <script>
-    function track_reservation_click(label) {
-      gtag('event', 'reservation_click', {
-        event_category: 'engagement',
-        event_label: label
-      });
-      return true;
-    }
 
-    function track_line_consult_click(label) {
-      gtag('event', 'line_consult_click', {
-        event_category: 'engagement',
-        event_label: label
-      });
-      return true;
-    }
+  <script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18082226766/twcMCJC8ndMcEM7Eo65D',
+        'event_callback': callback
+    });
+    return false;
+  }
   </script>
 
-<meta charset="utf-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>メディカルダイエットオンライン外来｜グランエタニティ銀座クリニック｜初回2,700円〜（税込・送料無料）｜全国配送</title>
   <meta name="description" content="メディカルダイエットオンライン外来｜グランエタニティ銀座クリニック。開始プラン 2,700円〜（税込）。完全オンライン診療、全国配送（送料無料）。医師が適応と安全性を確認の上で適切な処方を行います。" />
@@ -491,7 +489,7 @@
         <a class="btn pastel" href="#price">料金</a>
         <a class="btn pastel" href="#flow">流れ</a>
         <a class="btn pastel" href="#faq">FAQ</a>
-        <a class="btn primary" href="https://extl2.github.io/line-reservation-page/reservation.html" target="_blank" rel="noopener" onclick="track_reservation_click('reservation_cta');">今すぐオンライン診察を予約する</a>
+        <a class="btn primary" href="https://lin.ee/p56nbJ3" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">📲 LINEで無料相談・診察予約</a>
       </div>
     </div>
   </div>
@@ -504,9 +502,9 @@
         <h1>無理のないメディカルダイエット<br>オンライン診療で医師が丁寧サポート</h1>
 
         <div class="heroTopPrice">
-          <div class="cap">🔥 オンライン限定のお得な開始プラン</div>
+          <div class="cap">🔥 LINE限定のお得な開始プラン</div>
           <div class="big">開始プラン 2,700円〜</div>
-          <div class="sub">診察料無料・税込・送料無料 / 全国配送 / WEBでかんたん予約</div>
+          <div class="sub">診察料無料・税込・送料無料 / 全国配送 / LINEでかんたん1分予約</div>
         </div>
 
         <div class="heroAssure">
@@ -518,22 +516,18 @@
 
         <div class="heroButtons heroButtonsTop" style="margin-top:0;">
           <a class="btn primary heroCta"
-             href="https://extl2.github.io/line-reservation-page/reservation.html"
-             target="_blank"
-             rel="noopener" onclick="track_reservation_click('reservation_cta');">👉 空き状況を確認して診察予約する</a>
-          <a class="btn"
              href="https://lin.ee/p56nbJ3"
              target="_blank"
              rel="noopener"
-             onclick="track_line_consult_click('hero_line_consult');">
-            予約前にLINEで相談する
+             onclick="return gtag_report_conversion(this.href);">
+            👉 無料でLINE相談・予約する（1分）
           </a>
         </div>
 
         <div class="microTrust">
-          <div>✅ 予約サイトですぐに空き状況を確認できます</div>
-          <div>✅ ご希望の日時を選んで、そのまま診察予約へ進めます</div>
-          <div>✅ 予約前に料金・診療内容もご確認いただけます</div>
+          <div>✅ 友だち追加後、すぐに空き状況の確認やかんたん問診が可能です</div>
+          <div>✅ 「まずは自分に適応があるか聞きたい」「費用の確認だけ」でもOK</div>
+          <div>✅ 合わないと感じた場合はいつでもブロックいただけます</div>
         </div>
 
         <p class="lead" style="margin-top:14px;">
@@ -557,11 +551,11 @@
           <div class="kpi">国内正規医薬品のみ</div>
           <div class="kpi">診察5分目安</div>
           <div class="kpi">全国配送（クール便）</div>
-          <div class="kpi">WEB予約がスムーズ</div>
+          <div class="kpi">LINE予約が最短</div>
         </div>
 
         <div class="heroButtons">
-          <a class="btn primary" href="https://extl2.github.io/line-reservation-page/reservation.html" target="_blank" rel="noopener" onclick="track_reservation_click('reservation_cta');">今すぐオンライン診察を予約する</a>
+          <a class="btn primary" href="https://lin.ee/p56nbJ3" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">今すぐLINEで診察予約をする</a>
           <a class="btn" href="#faq">よくある質問を見る</a>
         </div>
 
@@ -570,7 +564,7 @@
         </p>
 
         <div class="consultBox">
-          <div class="consultTitle">💬 こんなお悩み・ご不安もオンライン診察でご相談いただけます</div>
+          <div class="consultTitle">💬 こんなお悩み・ご不安をお持ちの方は、まずLINEでお知らせください</div>
           <div class="consultList">
             <span>食欲が抑えられず辛い</span>
             <span>副作用やリスクが心配</span>
@@ -614,8 +608,8 @@
           </div>
           <div class="heroInfo">
             <div class="infoCard">
-              <strong>📱 オンラインで完結</strong>
-              <span>ご予約から問診・診察・決済までスマホでスムーズに進められます。</span>
+              <strong>📱 LINEで完結</strong>
+              <span>ご相談・ご予約から問診・決済までスマホで完了。</span>
             </div>
             <div class="infoCard">
               <strong>🩺 内科専門医の診察</strong>
@@ -656,7 +650,7 @@
         <div class="card">
           <div class="featureIcon">💻</div>
           <h3>完全オンライン完結</h3>
-          <p class="muted">WEB予約 → 事前WEB問診 → ビデオ診察（5分程度） → クレジット決済 → 冷蔵配送。一度も通院せずにご自宅で受取可能です。</p>
+          <p class="muted">LINE予約 → 事前WEB問診 → ビデオ診察（5分程度） → クレジット決済 → 冷蔵配送。一度も通院せずにご自宅で受取可能です。</p>
         </div>
         <div class="card">
           <div class="featureIcon">🩺</div>
@@ -674,13 +668,13 @@
       <div class="card">
         <h2 class="sectionTitle">オンライン診療のとても簡単な流れ</h2>
 
-        <div class="sectionBand"><strong>💡 空き状況を確認して、そのままオンライン予約できます</strong><span class="muted">予約サイトで空き状況を確認し、ご希望の日時を選択して診察予約へ進めます。</span></div>
+        <div class="sectionBand"><strong>💡 ご予約前の事前相談だけでも歓迎です</strong><span class="muted">まずは公式LINEで空き状況・プラン内容をご確認ください。ご納得いただいた上で診察へ進めます。</span></div>
 
         <div class="grid2" style="margin-top:12px;">
           <div class="steps">
             <div class="step">
-              <div><strong>予約サイトで希望日時を選択</strong></div>
-              <div class="muted">予約ボタンから予約サイトを開き、カレンダーから都合の良い日時を選択します。</div>
+              <div><strong>LINE友だち追加・希望日時選択</strong></div>
+              <div class="muted">緑のボタンから公式LINEを追加し、カレンダーから都合の良い日時を選ぶだけ。</div>
             </div>
             <div style="height:10px"></div>
             <div class="step">
@@ -712,18 +706,18 @@
             <div style="height:10px"></div>
             <div class="step">
               <div><strong>アフターサポート</strong></div>
-              <div class="muted">疑問点や体調変化は診療時や当院の案内窓口でご相談いただけます。</div>
+              <div class="muted">疑問点や体調変化はいつでもLINEで相談可能。安心のフォロー体制を整えています。</div>
             </div>
             <div style="height:10px"></div>
             <div class="step">
               <div><strong>次回分の継続手続</strong></div>
-              <div class="muted">2回目以降もオンラインでスムーズに再診・手続き。経過に応じて調整を行います。</div>
+              <div class="muted">2回目以降もLINEでスムーズに再診・手続完了。経過に応じて調整を行います。</div>
             </div>
           </div>
         </div>
 
         <div class="heroButtons" style="margin-top:20px;">
-          <a class="btn primary heroCta" href="https://extl2.github.io/line-reservation-page/reservation.html" target="_blank" rel="noopener" onclick="track_reservation_click('reservation_cta');">👉 空き状況を確認して診察予約する</a>
+          <a class="btn primary heroCta" href="https://lin.ee/p56nbJ3" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">👉 LINEで診察予約・相談をする</a>
           <a class="btn" href="#faq">よくある質問へ</a>
         </div>
 
@@ -791,7 +785,7 @@
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
         <div style="background:white;padding:25px;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
           <div style="color:#ffb400;margin-bottom:8px;">★★★★★</div>
-          <p>「オンライン診察が驚くほどスムーズでした。オンラインで手軽に予約でき、説明も丁寧でわかりやすかったです。お薬も翌日には冷蔵で届きました！」</p>
+          <p>「オンライン診察が驚くほどスムーズでした。LINEで手軽に予約でき、説明も丁寧でわかりやすかったです。お薬も翌日には冷蔵で届きました！」</p>
           <b style="color:var(--muted);font-size:13px;">30代女性（会社員）</b>
         </div>
 
@@ -803,13 +797,13 @@
 
         <div style="background:white;padding:25px;border-radius:14px;box-shadow:0 5px 20px rgba(0,0,0,0.08);">
           <div style="color:#ffb400;margin-bottom:8px;">★★★★★</div>
-          <p>「仕事で忙しく通院する時間がなかったので本当に助かりました。オンラインでも相談しやすく、サポート面でも信頼できます。」</p>
+          <p>「仕事で忙しく通院する時間がなかったので本当に助かりました。LINEで質問してもすぐに対応してくれるのでサポート面でも信頼できます。」</p>
           <b style="color:var(--muted);font-size:13px;">30代男性（自営業）</b>
         </div>
       </div>
 
       <div style="text-align:center;margin-top:32px;">
-        <a class="btn primary heroCta" href="https://extl2.github.io/line-reservation-page/reservation.html" target="_blank" rel="noopener" onclick="track_reservation_click('reservation_cta');">👉 空き状況を確認して診察予約する</a>
+        <a class="btn primary heroCta" href="https://lin.ee/p56nbJ3" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">📲 まずはLINEで無料相談・予約する</a>
       </div>
     </div>
   </section>
@@ -828,7 +822,7 @@
 
         <details>
           <summary>注文からどれくらいで手元に届きますか？</summary>
-          <div class="muted">お住まいの地域や決済完了時間によりますが、午前中の決済完了で最短翌日〜2日以内にお手元へ配送いたします。荷物追跡番号もご案内します。</div>
+          <div class="muted">お住まいの地域や決済完了時間によりますが、午前中の決済完了で最短翌日〜2日以内にお手元へ配送いたします。荷物追跡番号もLINEでお知らせします。</div>
         </details>
 
         <details>
@@ -848,7 +842,7 @@
 
         <details>
           <summary>予約のキャンセルや変更は可能ですか？</summary>
-          <div class="muted">診察前のキャンセル・日時変更は当院の案内に沿ってお手続きいただけます。なお、診察・決済完了後につきましては、医薬品の性質上、返品・返金はお受けできません。</div>
+          <div class="muted">診察前のキャンセル・日時変更はLINEから自由に行っていただけます。なお、診察・決済完了後につきましては、医薬品の性質上、返品・返金はお受けできません。</div>
         </details>
 
         <section style="padding:40px 20px;">
@@ -864,7 +858,7 @@
         </section>
 
         <div class="heroButtons" style="margin-top:14px;">
-          <a class="btn primary" href="https://extl2.github.io/line-reservation-page/reservation.html" target="_blank" rel="noopener" onclick="track_reservation_click('reservation_cta');">今すぐオンライン診察を予約する</a>
+          <a class="btn primary" href="https://lin.ee/p56nbJ3" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">今すぐLINEで予約する</a>
           <a class="btn" href="#clinic">クリニック情報へ</a>
         </div>
       </div>
@@ -876,10 +870,10 @@
     <div class="wrap">
       <div class="ctaPanel">
         <div class="ctaText">
-          <h3>まずは空き枠を確認してオンライン予約</h3>
-          <p>費用や診療内容をご確認いただき、そのままご希望の日時で予約へ進めます。</p>
+          <h3>まずは空き枠の確認・ご相談から！</h3>
+          <p>費用や診療内容をLINEでご確認いただき、そのままご希望の日時で予約へ進めます。</p>
           <div class="heroButtons">
-            <a class="btn primary heroCta" href="https://extl2.github.io/line-reservation-page/reservation.html" target="_blank" rel="noopener" onclick="track_reservation_click('reservation_cta');">👉 空き状況を確認して診察予約する</a>
+            <a class="btn primary heroCta" href="https://lin.ee/p56nbJ3" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">👉 LINEで今すぐ相談・予約</a>
             <a class="btn" href="#price">料金を見る</a>
           </div>
         </div>
@@ -905,8 +899,8 @@
             </div>
           </div>
           <div class="heroInfo">
-            <div class="infoCard"><strong>🌸 親身な問診対応</strong><span>不安なことやご質問はオンライン診察時に医師へご相談いただけます。</span></div>
-            <div class="infoCard"><strong>✅ 24時間受付中</strong><span>予約サイトからいつでも空き状況をご確認いただけます。</span></div>
+            <div class="infoCard"><strong>🌸 親身な問診対応</strong><span>不安なことやご質問があれば、LINEでいつでもお問合せください。</span></div>
+            <div class="infoCard"><strong>✅ 24時間受付中</strong><span>公式LINEからいつでもご予約・問診回答が可能です。</span></div>
           </div>
         </div>
       </div>
@@ -963,10 +957,10 @@
     <div class="wrap ctaIn">
       <div class="left">
         <div class="txt">🔥 診察料無料・全プラン送料無料 2,700円〜</div>
-        <div class="sub">完全オンライン診療・予約サイトで空き状況をすぐ確認</div>
+        <div class="sub">完全オンライン診療・事前相談のみや費用の確認だけでも大歓迎</div>
       </div>
       <div>
-        <a class="btn primary" href="https://extl2.github.io/line-reservation-page/reservation.html" target="_blank" rel="noopener" onclick="track_reservation_click('reservation_cta');">今すぐオンライン診察を予約する</a>
+        <a class="btn primary" href="https://lin.ee/p56nbJ3" target="_blank" rel="noopener" onclick="return gtag_report_conversion(this.href);">📲 まずはLINEで無料相談する</a>
       </div>
     </div>
   </div>
