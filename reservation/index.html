@@ -1,106 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <!-- Google tag (gtag.js) -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ご予約フォーム | グランエタニティ銀座クリニック</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z70EZBD1X"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-7Z70EZBD1X');
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments)}
+    gtag('js',new Date());
+    gtag('config','G-7Z70EZBD1X',{transport_type:'beacon'});
   </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ご予約フォーム | グランエタニティ銀座クリニック</title>
   <style>
-    :root{--bg:#f6f8fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--line:#d7dee8;--accent:#06c755;--accent-dark:#03a347;--soft:#eefaf3;--warn:#fff7e8;--warn-border:#f3d28f;--danger:#b42318;--shadow:0 12px 30px rgba(17,24,39,.08)}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;line-height:1.65}
-    .wrap{max-width:780px;margin:0 auto;padding:18px 14px 50px}.hero{background:linear-gradient(135deg,#06c755,#39d97c);color:#fff;border-radius:22px;padding:22px 18px;box-shadow:0 14px 32px rgba(6,199,85,.22);margin-bottom:16px}.hero h1{margin:0;font-size:19px;line-height:1.35}.hero .clinic-name{display:block;margin-top:3px;font-size:13px;font-weight:700;opacity:.92}.hero p{margin:0;font-size:14px}.badge{display:inline-block;background:rgba(255,255,255,.18);padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;margin-bottom:10px}
-    .progress{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}.progress-step{background:#fff;border:1px solid #dce4ec;border-radius:12px;padding:10px;text-align:center;font-size:12px;font-weight:800;color:#64748b}.progress-step.active{background:var(--soft);border-color:#8edaaa;color:#08763a}.progress-step.done{background:var(--accent);border-color:var(--accent);color:#fff}
-    .panel{scroll-margin-top:12px}.card{background:var(--card);border:1px solid #e8eef5;border-radius:20px;box-shadow:var(--shadow);padding:18px;margin-bottom:22px}h2{font-size:20px;margin:0 0 12px}h3{font-size:16px;margin:0 0 10px}.section{padding-top:14px;margin-top:4px;border-top:1px solid #eef2f7}.section:first-child{border-top:0;padding-top:0}.alert{background:var(--warn);border:1px solid var(--warn-border);border-radius:14px;padding:14px;font-size:14px;margin-bottom:14px}
-    form{display:grid;gap:14px}label{display:block;font-weight:700;font-size:14px;margin-bottom:6px}.required::after{content:"必須";display:inline-block;margin-left:8px;padding:2px 7px;border-radius:999px;background:#fff1f1;color:var(--danger);font-size:11px;vertical-align:middle}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:16px;background:#fff;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 4px rgba(6,199,85,.12)}textarea{min-height:96px;resize:vertical}.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.help,.small,.footer-note{font-size:12px;color:var(--muted)}
-    .checklist{display:grid;gap:10px}.check{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid #edf1f6;border-radius:12px;background:#fafcfe}.check input{width:18px;height:18px;flex:0 0 18px;margin-top:2px}.check span{font-size:14px}.btn{display:block;width:100%;border:0;border-radius:14px;padding:16px 18px;font-size:16px;font-weight:800;cursor:pointer;background:var(--accent);color:#fff;text-align:center;text-decoration:none;box-shadow:0 10px 20px rgba(6,199,85,.22)}.btn:hover{background:var(--accent-dark)}.btn:disabled{background:#9fd9b3;cursor:not-allowed;box-shadow:none}.btn-secondary{background:#fff;color:#07853d;border:2px solid var(--accent);box-shadow:none}.btn-secondary:hover{background:#effcf4}.price-box{margin:0 0 16px;padding:15px;border:2px solid #7bdca3;border-radius:16px;background:linear-gradient(135deg,#f1fff7,#e9fbf1);text-align:center}.price-box-title{margin:0 0 9px;font-size:14px;font-weight:800;color:#08763a}.price-list{display:grid;grid-template-columns:1fr 1fr;gap:9px}.price-item{padding:10px 7px;border:1px solid #b9e9cc;border-radius:12px;background:#fff}.price-dose{display:block;font-size:13px;font-weight:800;color:#374151}.price-value{display:block;margin-top:1px;font-size:21px;line-height:1.25;font-weight:900;color:#047a38}.price-included{margin:10px 0 0;font-size:12px;font-weight:800;color:#475467}.price-link{margin:8px 0 0;text-align:center;font-size:12px}.price-link a{color:#08763a;text-underline-offset:3px}
-    .message{display:none;border-radius:12px;padding:12px 14px;font-size:14px;font-weight:700}.message.success{background:#ecfdf3;border:1px solid #abefc6;color:#067647}.message.error{background:#fff4f3;border:1px solid #f7b4ae;color:#b42318}.slot-box{border:1px solid #edf1f5;background:#fafbfc;border-radius:14px;padding:14px}.loading{display:block;background:#f8fafc;border:1px solid #dbe2ea;color:#475467;border-radius:12px;padding:12px 14px;font-size:14px;font-weight:700;margin-top:10px}.slot-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:10px}.slot-btn{border:1px solid #cfd8e3;background:#fff;color:var(--text);border-radius:12px;padding:12px 10px;font-size:14px;font-weight:700;cursor:pointer}.slot-btn.active{border-color:var(--accent);background:var(--accent);color:#fff}.selected-slot{margin-top:8px;font-size:13px;color:#08763a;font-weight:700}.notice{background:#ecfdf3;border:1px solid #abefc6;border-radius:12px;padding:14px;margin:14px 0;font-size:14px}ul{margin:8px 0 0 18px;padding:0}
-    .panel[hidden]{display:none!important}.date-trigger{width:100%;display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;color:#98a2b3;font-size:16px;cursor:pointer;text-align:left}.date-trigger.selected{color:var(--text);font-weight:700;border-color:var(--accent)}.date-trigger:after{content:"▼";font-size:11px;color:#667085}.date-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;padding:10px;border:1px solid #e3ebe7;border-radius:12px;background:#fff}.date-options[hidden]{display:none}.date-option{border:1px solid #cfd8e3;background:#fff;border-radius:10px;padding:10px 6px;font-size:13px;font-weight:700;cursor:pointer}.date-option:hover,.date-option.active{border-color:var(--accent);background:var(--soft);color:#08763a}.radio-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.radio-card{display:flex;align-items:center;gap:9px;padding:12px;border:1px solid #edf1f6;border-radius:12px;background:#fff;cursor:pointer}.radio-card:has(input:checked){border-color:var(--accent);background:var(--soft);color:#08763a}.radio-card input{width:18px;height:18px;accent-color:var(--accent)}fieldset{margin:0;padding:14px;border:1px solid #edf1f6;border-radius:14px;background:#fafbfc}legend{font-weight:700;font-size:14px;padding:0 4px}.available-dates{margin-top:9px;padding:10px 12px;border-radius:12px;background:#eefaf3;color:#08763a;font-size:13px;font-weight:700}.step-lead{margin:-4px 0 14px;color:var(--muted);font-size:13px}
-    @media(max-width:640px){.grid-2,.grid-3{grid-template-columns:1fr}.hero h1{font-size:23px}.progress-step{padding:8px 4px;font-size:11px}.slot-grid{grid-template-columns:1fr}}
+    :root{--green:#06c755;--dark:#08763a;--bg:#f6f8fb;--text:#1f2937;--line:#d7dee8}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;line-height:1.65}.wrap{max-width:780px;margin:auto;padding:18px 14px 50px}.hero{background:linear-gradient(135deg,#06c755,#39d97c);color:#fff;border-radius:22px;padding:22px 18px;margin-bottom:16px;box-shadow:0 14px 32px #06c75538}.badge{display:inline-block;background:#ffffff30;padding:6px 10px;border-radius:99px;font-size:12px;font-weight:700}.hero h1{font-size:19px;line-height:1.4;margin:8px 0 0}.clinic{display:block;font-size:13px}.progress{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}.step{background:#fff;border:1px solid #dce4ec;border-radius:12px;padding:10px;text-align:center;font-size:12px;font-weight:800;color:#64748b}.step.active{background:#eefaf3;border-color:#8edaaa;color:var(--dark)}.step.done{background:var(--green);color:#fff}.card{background:#fff;border:1px solid #e8eef5;border-radius:20px;padding:18px;margin-bottom:22px;box-shadow:0 12px 30px #11182714}h2{font-size:20px;margin:0 0 8px}.lead,.help,.small{color:#6b7280;font-size:12px}.price{border:2px solid #7bdca3;border-radius:16px;background:#effcf4;text-align:center;padding:14px;margin:14px 0}.price-title{font-weight:800;color:var(--dark);margin:0 0 8px}.price-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.price-item{background:#fff;border:1px solid #b9e9cc;border-radius:12px;padding:9px}.price-item strong{display:block;color:#047a38;font-size:21px}.price-note{font-size:12px;font-weight:800}.price a{color:var(--dark);font-size:12px}form{display:grid;gap:14px}label,legend{font-size:14px;font-weight:700}.required:after{content:"必須";font-size:11px;color:#b42318;background:#fff1f1;border-radius:99px;padding:2px 7px;margin-left:8px}input{width:100%;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:16px}.slot-box,fieldset{border:1px solid #edf1f5;background:#fafbfc;border-radius:14px;padding:14px}.date-trigger{width:100%;border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;text-align:left;font-size:16px}.date-trigger.selected{border-color:var(--green);color:var(--text);font-weight:700}.date-options{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.date-options[hidden],section[hidden]{display:none!important}.date-option,.slot-btn{border:1px solid #cfd8e3;background:#fff;border-radius:10px;padding:11px 6px;font-weight:700}.slot-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.slot-btn.active{background:var(--green);border-color:var(--green);color:#fff}.selected{color:var(--dark);font-size:13px;font-weight:700;margin-top:8px}.loading{font-size:14px;color:#475467;margin-top:10px}.radio-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.radio{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #edf1f6;border-radius:12px;padding:12px}.radio input,.check input{width:18px;height:18px}.check{display:flex;gap:10px;align-items:flex-start}.btn{width:100%;border:0;border-radius:14px;padding:16px;background:var(--green);color:#fff;font-size:16px;font-weight:800}.btn:disabled{background:#9fd9b3}.message{display:none;border-radius:12px;padding:12px;color:#b42318;background:#fff4f3}.notice{background:#ecfdf3;border:1px solid #abefc6;border-radius:12px;padding:14px;margin:14px 0}@media(max-width:640px){.slot-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <header class="hero"><span class="badge">メディカルダイエットオンライン外来</span><h1>ご予約フォーム<span class="clinic-name">グランエタニティ銀座クリニック</span></h1></header>
-    <nav class="progress" aria-label="お申し込みの進行状況" style="grid-template-columns:1fr 1fr"><div id="progress1" class="progress-step active">1. 予約</div><div id="progress2" class="progress-step">2. 診察案内</div></nav>
-
-    <section id="reservationPanel" class="panel" aria-labelledby="reservationTitle">
-      <div class="card"><h2 id="reservationTitle">ご予約フォーム</h2>
-        <p class="step-lead">ご希望の日時と連絡先をご入力ください。</p>
-        <div class="price-box" aria-label="マンジャロ料金のご案内">
-          <p class="price-box-title">マンジャロ料金</p>
-          <div class="price-list">
-            <div class="price-item"><span class="price-dose">2.5mg・4本</span><span class="price-value">11,800円</span></div>
-            <div class="price-item"><span class="price-dose">5mg・4本</span><span class="price-value">18,900円</span></div>
-          </div>
-          <p class="price-included">税込・診察料・クール便送料込み</p>
-          <p class="price-link"><a href="https://extl2.github.io/mounjaro_flow/ryoukinhyou.html" target="_blank" rel="noopener noreferrer">その他の用量・本数の料金を見る</a></p>
-        </div>
-        <form id="reservationForm" action="https://formspree.io/f/mgonvroj" method="POST">
-          <div class="slot-box">
-            <label class="required" for="dateTrigger">ご予約日時</label>
-            <button id="dateTrigger" class="date-trigger" type="button" aria-expanded="false" aria-controls="dateOptions">日付を選択してください</button>
-            <div id="loadingMessage" class="loading">予約可能日を読み込み中です…</div>
-            <div id="dateOptions" class="date-options" hidden></div>
-            <div id="slotArea"></div>
-            <div id="selectedSlotText" class="selected-slot" aria-live="polite"></div>
-            <input type="hidden" id="reservationDate" name="予約日">
-            <input type="hidden" id="selectedTime" name="予約時間">
-            <input type="hidden" id="selectedDatetimeLabel" name="予約日時">
-            <input type="hidden" id="reservationId" name="受付番号">
-          </div>
-          <fieldset><legend class="required">マンジャロの使用経験</legend><div class="radio-row"><label class="radio-card"><input type="radio" name="マンジャロ使用経験" value="なし" required>なし</label><label class="radio-card"><input type="radio" name="マンジャロ使用経験" value="あり" required>あり</label></div></fieldset>
-          <div><label class="required" for="reservationName">お名前</label><input id="reservationName" name="お名前" autocomplete="name" placeholder="例）山田 花子" required></div>
-          <div><label class="required" for="reservationPhone">電話番号</label><input id="reservationPhone" name="電話番号" type="tel" inputmode="tel" autocomplete="tel" placeholder="例）09012345678" pattern="[0-9０-９+＋()（）ー―‐-]{10,20}" required><div class="help">ハイフンあり・なしのどちらでも入力できます。</div></div>
-          <div><label class="required" for="reservationEmail">メールアドレス</label><input id="reservationEmail" name="メールアドレス" type="email" autocomplete="email" placeholder="例）sample@example.com" required></div>
-          <label class="check"><input type="checkbox" name="個人情報同意" required><span>個人情報の取扱いに同意のうえ送信します。</span></label>
-          <button id="reservationSubmit" type="submit" class="btn" disabled>予約を確定する</button><div id="reservationMessage" class="message" role="status" aria-live="polite"></div>
-        </form>
-      </div>
-    </section>
-
-    <section id="visitPanel" class="panel" aria-labelledby="visitTitle" hidden>
-      <div class="card"><h2 id="visitTitle">オンライン診察のご案内</h2><p>ご予約ありがとうございます。診察は<strong>Google Meetによるビデオ診察</strong>で行います。</p><div class="notice">診察時間の<strong>10分前までに</strong>、Google Meetの診察URLをご予約時の<strong>メールアドレスへお送りします</strong>。</div><p id="referenceDisplay" class="small" style="font-weight:800;color:#08763a"></p><ul><li>受信ボックスと迷惑メールフォルダをご確認ください。</li><li>通信環境の良い場所でお待ちください。</li><li>診察時間は約5分程度です。</li><li>診察の結果により処方できない場合があります。</li></ul></div>
-    </section>
-  </main>
-  <script>
-    'use strict';
-    const FORM_ENDPOINT='https://formspree.io/f/mgonvroj';
-    const form=document.getElementById('reservationForm');
-    const submitButton=document.getElementById('reservationSubmit');
-    const dateTrigger=document.getElementById('dateTrigger');
-    const dateOptions=document.getElementById('dateOptions');
-    const loadingMessage=document.getElementById('loadingMessage');
-    const slotArea=document.getElementById('slotArea');
-    const selectedSlotText=document.getElementById('selectedSlotText');
-    const reservationDate=document.getElementById('reservationDate');
-    const selectedTime=document.getElementById('selectedTime');
-    const selectedDatetimeLabel=document.getElementById('selectedDatetimeLabel');
-    const reservationId=document.getElementById('reservationId');
-    let availableSlots={};
-    let formStartTracked=false;
-    function trackEvent(name){if(typeof gtag==='function')gtag('event',name)}
-    trackEvent('reservation_page_view');
-    function japanNowParts(){const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());const get=type=>parts.find(part=>part.type===type)?.value;return{date:get('year')+'-'+get('month')+'-'+get('day'),minutes:Number(get('hour'))*60+Number(get('minute'))}}
-    function futureSlots(date){const slots=availableSlots[date];if(!Array.isArray(slots))return[];const now=japanNowParts();if(date!==now.date)return slots;return slots.filter(time=>{const match=String(time).match(/^(\d{1,2}):(\d{2})/);return!match||Number(match[1])*60+Number(match[2])>now.minutes})}
-    function formatDate(date){const d=new Date(date+'T00:00:00');return new Intl.DateTimeFormat('ja-JP',{month:'numeric',day:'numeric',weekday:'short'}).format(d)}
-    function setMessage(text){const el=document.getElementById('reservationMessage');el.textContent=text;el.className='message error';el.style.display='block';el.scrollIntoView({behavior:'smooth',block:'center'})}
-    function clearMessage(){const el=document.getElementById('reservationMessage');el.textContent='';el.className='message';el.style.display='none'}
-    function resetTime(){selectedTime.value='';selectedDatetimeLabel.value='';selectedSlotText.textContent='';slotArea.replaceChildren();submitButton.disabled=true}
-    function renderTimes(date){resetTime();const grid=document.createElement('div');grid.className='slot-grid';futureSlots(date).forEach(time=>{const button=document.createElement('button');button.type='button';button.className='slot-btn';button.textContent=String(time);button.addEventListener('click',()=>{grid.querySelectorAll('.slot-btn').forEach(item=>item.classList.remove('active'));button.classList.add('active');selectedTime.value=String(time);selectedDatetimeLabel.value=date+' '+time;selectedSlotText.textContent='選択中：'+formatDate(date)+' '+time;submitButton.disabled=false;trackEvent('slot_selected')});grid.appendChild(button)});slotArea.appendChild(grid)}
-    function selectDate(date,button,trackSelection=true){reservationDate.value=date;dateTrigger.textContent=formatDate(date);dateTrigger.classList.add('selected');dateTrigger.setAttribute('aria-expanded','false');dateOptions.querySelectorAll('.date-option').forEach(item=>item.classList.remove('active'));button.classList.add('active');dateOptions.hidden=true;renderTimes(date);if(trackSelection)trackEvent('date_selected')}
-    async function loadSlots(){submitButton.disabled=true;try{const response=await fetch('./available_slots.json?v='+Date.now(),{cache:'no-store'});if(!response.ok)throw new Error();const data=await response.json();availableSlots=data&&typeof data==='object'&&!Array.isArray(data)?data:{};const today=japanNowParts().date;const dates=Object.keys(availableSlots).filter(date=>date>=today&&futureSlots(date).length).sort();loadingMessage.style.display='none';dateOptions.replaceChildren();if(!dates.length){dateTrigger.textContent='現在、予約可能な日付がありません';dateTrigger.disabled=true;trackEvent('reservation_no_available_slots');return}dates.forEach(date=>{const button=document.createElement('button');button.type='button';button.className='date-option';button.textContent=formatDate(date);button.addEventListener('click',()=>selectDate(date,button));dateOptions.appendChild(button)});const firstButton=dateOptions.querySelector('.date-option');selectDate(dates[0],firstButton,false);trackEvent('reservation_slots_loaded')}catch(error){loadingMessage.style.display='none';dateTrigger.textContent='予約可能日を読み込めませんでした';dateTrigger.disabled=true;trackEvent('reservation_slots_load_error');setMessage('予約枠の読み込みに失敗しました。時間をおいて再度お試しください。')}}
-    dateTrigger.addEventListener('click',()=>{if(dateTrigger.disabled)return;dateOptions.hidden=!dateOptions.hidden;dateTrigger.setAttribute('aria-expanded',String(!dateOptions.hidden))});
-    document.addEventListener('click',event=>{if(!event.target.closest('.slot-box')){dateOptions.hidden=true;dateTrigger.setAttribute('aria-expanded','false')}});
-    form.addEventListener('input',()=>{if(!formStartTracked){formStartTracked=true;trackEvent('reservation_form_start')}});
-    form.addEventListener('submit',async event=>{event.preventDefault();clearMessage();if(!reservationDate.value){setMessage('予約日を選択してください。');return}if(!selectedTime.value){setMessage('予約時間を選択してください。');return}if(!form.reportValidity())return;trackEvent('reservation_submit_attempt');if(!reservationId.value)reservationId.value='GE-'+Date.now().toString(36).toUpperCase();submitButton.disabled=true;submitButton.textContent='送信中…';try{const response=await fetch(FORM_ENDPOINT,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!response.ok)throw new Error();document.getElementById('reservationPanel').hidden=true;document.getElementById('visitPanel').hidden=false;document.getElementById('progress1').className='progress-step done';document.getElementById('progress2').className='progress-step active';document.getElementById('referenceDisplay').textContent='受付番号：'+reservationId.value;document.getElementById('visitPanel').scrollIntoView({behavior:'smooth',block:'start'});trackEvent('reservation_submit_success')}catch(error){trackEvent('reservation_submit_error');setMessage('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');submitButton.disabled=false;submitButton.textContent='予約を確定する'}});
-    loadSlots();
-  </script>
+<main class="wrap">
+  <header class="hero"><span class="badge">メディカルダイエットオンライン外来</span><h1>ご予約フォーム<span class="clinic">グランエタニティ銀座クリニック</span></h1></header>
+  <nav class="progress"><div id="progress1" class="step active">1. 予約</div><div id="progress2" class="step">2. 診察案内</div></nav>
+  <section id="reservationPanel"><div class="card"><h2>ご予約フォーム</h2><p class="lead">ご希望の日時と連絡先をご入力ください。</p>
+    <div class="price"><p class="price-title">マンジャロ料金</p><div class="price-grid"><div class="price-item">2.5mg・4本<strong>11,800円</strong></div><div class="price-item">5mg・4本<strong>18,900円</strong></div></div><p class="price-note">税込・診察料・クール便送料込み</p><a href="https://extl2.github.io/mounjaro_flow/ryoukinhyou.html" target="_blank" rel="noopener">その他の用量・本数の料金を見る</a></div>
+    <form id="reservationForm" action="https://formspree.io/f/mgonvroj" method="post">
+      <div class="slot-box"><label class="required">ご予約日時</label><button id="dateTrigger" class="date-trigger" type="button">日付を選択してください</button><div id="loadingMessage" class="loading">予約可能日を読み込み中です…</div><div id="dateOptions" class="date-options" hidden></div><div id="slotArea"></div><div id="selectedSlotText" class="selected"></div><input type="hidden" id="reservationDate" name="予約日"><input type="hidden" id="selectedTime" name="予約時間"><input type="hidden" id="selectedDatetimeLabel" name="予約日時"><input type="hidden" id="reservationId" name="受付番号"></div>
+      <fieldset><legend class="required">マンジャロの使用経験</legend><div class="radio-row"><label class="radio"><input type="radio" name="マンジャロ使用経験" value="なし" required>なし</label><label class="radio"><input type="radio" name="マンジャロ使用経験" value="あり" required>あり</label></div></fieldset>
+      <div><label class="required" for="reservationName">お名前</label><input id="reservationName" name="お名前" autocomplete="name" required></div>
+      <div><label class="required" for="reservationPhone">電話番号</label><input id="reservationPhone" name="電話番号" type="tel" inputmode="tel" autocomplete="tel" pattern="[0-9０-９+＋()（）ー―‐-]{10,20}" required><div class="help">ハイフンあり・なしのどちらでも入力できます。</div></div>
+      <div><label class="required" for="reservationEmail">メールアドレス</label><input id="reservationEmail" name="メールアドレス" type="email" autocomplete="email" required></div>
+      <label class="check"><input type="checkbox" name="個人情報同意" required><span>個人情報の取扱いに同意のうえ送信します。</span></label>
+      <button id="reservationSubmit" class="btn" type="submit" disabled>予約を確定する</button><div id="reservationMessage" class="message"></div>
+    </form>
+  </div></section>
+  <section id="visitPanel" hidden><div class="card"><h2>オンライン診察のご案内</h2><p>ご予約ありがとうございます。診察は<strong>Google Meetによるビデオ診察</strong>で行います。</p><div class="notice">診察時間の<strong>10分前までに</strong>、Google Meetの診察URLをご予約時の<strong>メールアドレスへお送りします</strong>。</div><p id="referenceDisplay" class="small"></p><ul><li>受信ボックスと迷惑メールフォルダをご確認ください。</li><li>通信環境の良い場所でお待ちください。</li><li>診察時間は約5分程度です。</li><li>診察の結果により処方できない場合があります。</li></ul></div></section>
+</main>
+<script>
+'use strict';
+const FORM_ENDPOINT='https://formspree.io/f/mgonvroj',GA_ID='G-7Z70EZBD1X';
+const byId=id=>document.getElementById(id),form=byId('reservationForm'),submitButton=byId('reservationSubmit'),dateTrigger=byId('dateTrigger'),dateOptions=byId('dateOptions'),loadingMessage=byId('loadingMessage'),slotArea=byId('slotArea'),selectedSlotText=byId('selectedSlotText'),reservationDate=byId('reservationDate'),selectedTime=byId('selectedTime'),selectedDatetimeLabel=byId('selectedDatetimeLabel'),reservationId=byId('reservationId');
+let availableSlots={},formStartTracked=false;
+function trackEvent(name,params={}){try{gtag('event',name,{send_to:GA_ID,transport_type:'beacon',engagement_time_msec:1,...params})}catch(e){window.dataLayer.push(['event',name,params])}}
+function trackReliable(name,params={}){return new Promise(resolve=>{let done=false;const finish=()=>{if(!done){done=true;resolve()}};try{gtag('event',name,{send_to:GA_ID,transport_type:'beacon',engagement_time_msec:1,...params,event_callback:finish,event_timeout:800});setTimeout(finish,900)}catch(e){finish()}})}
+trackEvent('reservation_page_view',{page_path:location.pathname,tracking_version:'2026-08-23-fixed'});
+function japanNow(){const p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()),g=t=>p.find(x=>x.type===t)?.value;return{date:`${g('year')}-${g('month')}-${g('day')}`,minutes:+g('hour')*60 + +g('minute')}}
+function futureSlots(date){const a=availableSlots[date];if(!Array.isArray(a))return[];const now=japanNow();return date!==now.date?a:a.filter(t=>{const m=String(t).match(/^(\d{1,2}):(\d{2})/);return !m||(+m[1]*60 + +m[2]>now.minutes)})}
+function formatDate(date){return new Intl.DateTimeFormat('ja-JP',{month:'numeric',day:'numeric',weekday:'short'}).format(new Date(date+'T00:00:00'))}
+function setMessage(text){const e=byId('reservationMessage');e.textContent=text;e.style.display='block'}function clearMessage(){const e=byId('reservationMessage');e.textContent='';e.style.display='none'}
+function resetTime(){selectedTime.value='';selectedDatetimeLabel.value='';selectedSlotText.textContent='';slotArea.replaceChildren();submitButton.disabled=true}
+function renderTimes(date){resetTime();const grid=document.createElement('div');grid.className='slot-grid';futureSlots(date).forEach(time=>{const b=document.createElement('button');b.type='button';b.className='slot-btn';b.textContent=time;b.onclick=()=>{grid.querySelectorAll('.slot-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');selectedTime.value=time;selectedDatetimeLabel.value=`${date} ${time}`;selectedSlotText.textContent=`選択中：${formatDate(date)} ${time}`;submitButton.disabled=false;trackEvent('slot_selected',{reservation_date:date,reservation_time:time})};grid.appendChild(b)});slotArea.appendChild(grid)}
+function selectDate(date,button,track=true){reservationDate.value=date;dateTrigger.textContent=formatDate(date);dateTrigger.classList.add('selected');dateOptions.querySelectorAll('.date-option').forEach(x=>x.classList.remove('active'));button.classList.add('active');dateOptions.hidden=true;renderTimes(date);if(track)trackEvent('date_selected',{reservation_date:date})}
+async function loadSlots(){try{const r=await fetch('./available_slots.json?v='+Date.now(),{cache:'no-store'});if(!r.ok)throw Error();availableSlots=await r.json();const today=japanNow().date,dates=Object.keys(availableSlots).filter(d=>d>=today&&futureSlots(d).length).sort();loadingMessage.hidden=true;dateOptions.replaceChildren();if(!dates.length){dateTrigger.textContent='現在、予約可能な日付がありません';dateTrigger.disabled=true;trackEvent('reservation_no_available_slots');return}dates.forEach(d=>{const b=document.createElement('button');b.type='button';b.className='date-option';b.textContent=formatDate(d);b.onclick=()=>selectDate(d,b);dateOptions.appendChild(b)});selectDate(dates[0],dateOptions.firstElementChild,false);trackEvent('reservation_slots_loaded',{available_date_count:dates.length})}catch(e){loadingMessage.textContent='予約可能日を読み込めませんでした';dateTrigger.disabled=true;trackEvent('reservation_slots_load_error');setMessage('予約枠の読み込みに失敗しました。時間をおいて再度お試しください。')}}
+dateTrigger.onclick=()=>{if(!dateTrigger.disabled)dateOptions.hidden=!dateOptions.hidden};
+form.addEventListener('input',()=>{if(!formStartTracked){formStartTracked=true;trackEvent('reservation_form_start')}});
+form.addEventListener('submit',async event=>{event.preventDefault();clearMessage();if(!reservationDate.value||!selectedTime.value||!form.reportValidity())return;if(!reservationId.value)reservationId.value='GE-'+Date.now().toString(36).toUpperCase();const common={reservation_id:reservationId.value,reservation_date:reservationDate.value,reservation_time:selectedTime.value,tracking_version:'2026-08-23-fixed'};trackEvent('reservation_submit_attempt',common);submitButton.disabled=true;submitButton.textContent='送信中…';try{const response=await fetch(FORM_ENDPOINT,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!response.ok)throw Error();await trackReliable('reservation_submit_success',common);byId('reservationPanel').hidden=true;byId('visitPanel').hidden=false;byId('progress1').className='step done';byId('progress2').className='step active';byId('referenceDisplay').textContent='受付番号：'+reservationId.value;byId('visitPanel').scrollIntoView({behavior:'smooth',block:'start'})}catch(error){trackEvent('reservation_submit_error',common);setMessage('送信に失敗しました。通信環境をご確認のうえ、もう一度お試しください。');submitButton.disabled=false;submitButton.textContent='予約を確定する'}});
+loadSlots();
+</script>
 </body>
 </html>
