@@ -24,7 +24,7 @@
   <nav class="progress"><div id="progress1" class="step active">1. 予約</div><div id="progress2" class="step">2. 診察案内</div></nav>
   <section id="reservationPanel"><div class="card"><h2>ご予約フォーム</h2><p class="lead">空いている日時を選び、お名前とメールアドレスをご入力ください。予約・診察・キャンセルは無料です。</p>
     <form id="reservationForm" action="https://formspree.io/f/mgonvroj" method="post">
-      <div class="quick-price"><strong>相談のみでも予約できます。</strong> 処方時の料金目安：2.5mg・4本 11,800円／5mg・4本 18,900円（税込・クール便送料込み）。</div>
+      <div class="quick-price"><strong>相談のみでも予約できます。</strong> 予約時点で処方や購入は決まりません。</div>
       <div class="slot-box"><label class="required">ご予約日時</label><p class="slot-hint">日付を選び、続けてご希望の時間をタップしてください。</p><div id="loadingMessage" class="loading">予約可能日を読み込み中です…</div><div id="dateOptions" class="date-options"></div><div id="slotArea"></div><p id="slotFallback" hidden>ご希望の日が表示されない場合は、<a href="https://lin.ee/nSBG5aT">LINEで次の診療枠を問い合わせる</a>ことができます。</p><div id="selectedSlotText" class="selected"></div><input type="hidden" id="reservationDate" name="予約日"><input type="hidden" id="selectedTime" name="予約時間"><input type="hidden" id="selectedDatetimeLabel" name="予約日時"><input type="hidden" id="reservationId" name="受付番号"></div>
       <fieldset id="mounjaroExperience"><legend class="required">マンジャロの使用経験</legend><div class="radio-row"><label class="radio"><input type="radio" name="マンジャロ使用経験" value="なし" required>なし</label><label class="radio"><input type="radio" name="マンジャロ使用経験" value="あり" required>あり</label></div></fieldset>
       <div><label class="required" for="reservationName">お名前</label><input id="reservationName" name="お名前" autocomplete="name" required></div>
@@ -34,7 +34,7 @@
       <button id="reservationSubmit" class="btn" type="submit" disabled>予約を確定する</button><div id="reservationMessage" class="message"></div>
     </form>
       <div class="intro-box"><strong>マンジャロを用いたオンライン外来です</strong><p>初めての方や使用を迷っている方も、まずは医師への相談だけでご予約いただけます。予約時点で使用・購入が決まるものではありません。</p></div>
-      <div class="price"><p class="price-title">診察後に処方する場合の料金</p><div class="price-grid"><div class="price-item">2.5mg・4本<strong>11,800円</strong></div><div class="price-item">5mg・4本<strong>18,900円</strong></div></div><p class="price-note">税込・クール便送料込み</p><div class="fee-policy"><strong>予約・診察にかかる費用</strong><p>診察料は無料です。診察の結果、処方に至らなかった場合や、購入を見送る場合も診察料はかかりません。</p><p>予約をキャンセルした場合も、キャンセル料はかかりません。</p></div><a href="https://extl2.github.io/mounjaro_flow/ryoukinhyou.html" target="_blank" rel="noopener">その他の用量・本数の料金を見る</a><p class="price-caution">※診察結果により処方できない場合があります。</p></div>
+      <div class="fee-policy"><strong>予約・診察にかかる費用</strong><p>診察料は無料です。診察の結果、処方に至らなかった場合や、購入を見送る場合も診察料はかかりません。</p><p>予約をキャンセルした場合も、キャンセル料はかかりません。</p></div>
     <div class="campaign-box"><h3>まとめ処方キャンペーン</h3><p>1回のマンジャロ処方額が税込50,000円以上となった方に、幹細胞培養上清成分配合美容液「<a href="https://full-eternity.com" target="_blank" rel="noopener">FULL ETERNITY</a> 25mL」1本を進呈します。</p><p class="campaign-note"><br>※診察の結果、医師が適切と判断した処方が対象です。</p></div>
   </div></section>
   <section id="visitPanel" hidden><div class="card"><h2>オンライン診察のご案内</h2><p>ご予約ありがとうございます。診察は<strong>Google Meetによるビデオ診察</strong>で行います。</p><div class="notice">診察時間の<strong>10分前までに</strong>、Google Meetの診察URLをご入力いただいた<strong>メールアドレス</strong>へお送りします。</div><p id="referenceDisplay" class="small"></p><ul><li>受信ボックスと迷惑メールフォルダをご確認ください。</li><li>通信環境の良い場所でお待ちください。</li><li>診察時間は約5分程度です。</li><li>診察の結果により処方できない場合があります。</li></ul></div></section>
