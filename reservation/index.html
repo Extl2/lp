@@ -18,7 +18,8 @@
     .campaign-box{margin-top:14px;border:2px solid #f4a8bf;border-radius:13px;background:linear-gradient(135deg,#fff2f7,#fff 58%,#f0fdf4);padding:13px 12px}.campaign-box h3{margin:0 0 7px;color:#c93f68;font-size:17px;line-height:1.4}.campaign-box p{margin:0 0 7px;font-size:13px;line-height:1.65}.campaign-box .campaign-note{margin:0;color:#6b7280;font-size:11px;line-height:1.7}
     .slot-box>.slot-heading{display:block;color:#075f32;font-size:23px;font-weight:800;line-height:1.35;margin:0 0 5px}
     @media(max-width:600px){.slot-box>.slot-heading{font-size:22px}}
-  .quick-slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:10px 0}.quick-slot{min-height:70px;font-size:16px}.quick-slot span{display:block;font-size:13px;margin-bottom:4px}.more-dates{display:block;width:100%;padding:11px;margin:10px 0;border:1px solid #b6c9db;border-radius:10px;background:#fff;color:#087de0;font:inherit;font-weight:700;cursor:pointer}.line-fallback{font-size:13px;line-height:1.7;margin:13px 0 0}.line-fallback a{display:block;color:#08763a;font-weight:800;text-underline-offset:3px}button[hidden],[hidden]{display:none!important}.slot-btn:focus-visible,.date-option:focus-visible,.more-dates:focus-visible{outline:3px solid #087de0;outline-offset:3px}@media(max-width:380px){.quick-slots{gap:5px}.quick-slot{font-size:15px}.quick-slot span{font-size:12px}}
+    /* Date-first booking: show every available date without an extra tap. */
+    .booking-step{font-size:16px;color:#075f32;margin:16px 0 8px;display:flex;align-items:center;gap:8px}.booking-step .number{display:inline-grid;place-items:center;width:25px;height:25px;border-radius:50%;background:#08763a;color:#fff;font-size:14px}.booking-note{font-size:13px;color:#52606d;margin:0 0 10px}.date-options{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.date-option{min-height:88px;padding:10px 4px;color:#344054;border-radius:12px;font:inherit;cursor:pointer}.date-option .date-label{display:block;font-size:19px;font-weight:800;line-height:1.4}.date-option small{font-size:12px;color:#08763a;margin-top:5px}.date-option.active{background:#eaf8ef;border:2px solid #08763a;color:#075f32;box-shadow:0 0 0 1px #08763a}.date-option.active small{color:#075f32}.date-option[data-weekday="6"] .date-label{color:#1769b1}.date-option[data-weekday="0"] .date-label{color:#b42339}.slot-group-title{font-size:14px;margin:14px 0 6px}.slot-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:0}.slot-btn{min-height:48px;padding:12px 4px;font-size:15px;color:#344054;border-radius:10px;font-variant-numeric:tabular-nums}.slot-btn.active{background:#08763a;border-color:#08763a;color:#fff;box-shadow:0 0 0 1px #08763a}.selected{background:#eaf8ef;border:1px solid #a7d9b8;border-radius:12px;padding:12px;font-size:17px;line-height:1.6;margin-top:16px}.selected:empty{display:none}.selected .selection-label{display:block;font-size:12px;color:#475467}.selected strong{display:block}.more-dates{display:block;width:100%;padding:11px;margin:10px 0;border:1px solid #b6c9db;border-radius:10px;background:#fff;color:#087de0;font:inherit;font-weight:700;cursor:pointer}.line-fallback{font-size:13px;line-height:1.7;margin:13px 0 0}.line-fallback a{display:block;color:#08763a;font-weight:800;text-underline-offset:3px}button[hidden],[hidden]{display:none!important}.slot-btn:focus-visible,.date-option:focus-visible,.more-dates:focus-visible{outline:3px solid #087de0;outline-offset:3px}.slot-btn:hover,.date-option:hover{border-color:#08763a}.time-section{border-top:1px solid #d7e5dc;margin-top:16px;padding-top:1px}@media(max-width:600px){.date-options{grid-template-columns:repeat(2,minmax(0,1fr))}.date-option{min-height:82px}.slot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.slot-btn{font-size:14px}.selected{font-size:16px}}
 </style>
 </head>
 <body>
@@ -30,9 +31,12 @@
       <div class="slot-box"><label class="required slot-heading">予約日時を選ぶ</label>
 <p class="slot-hint">予約・診察・キャンセル無料。相談だけでもご予約いただけます。</p>
 <div id="loadingMessage" class="loading" role="status" aria-live="polite">空き日時を読み込み中です…</div>
-<div id="quickSlots" class="quick-slots" aria-label="直近の空き日時"></div>
-<button id="moreDatesButton" class="more-dates" type="button" aria-expanded="false" aria-controls="allDates" hidden>ほかの日時を見る</button>
-<div id="allDates" hidden><p class="slot-hint">日付を選び、続けて時間をお選びください。</p><div id="dateOptions" class="date-options"></div><div id="slotArea"></div></div>
+<div id="allDates" hidden>
+<h3 id="dateHeading" class="booking-step"><span class="number">1</span>日付を選ぶ</h3>
+<p class="booking-note">空きのある日をすべて表示しています（日本時間）。</p>
+<div id="dateOptions" class="date-options" role="group" aria-labelledby="dateHeading"></div>
+<div class="time-section"><h3 id="timeHeading" class="booking-step"><span class="number">2</span><span id="timeHeadingText">時間を選ぶ</span></h3><div id="slotArea" role="group" aria-labelledby="timeHeading"></div></div>
+</div>
 <button id="retrySlots" type="button" class="more-dates" hidden>空き日時を再読み込みする</button>
 <p id="slotFallback" class="line-fallback">日時が合わない方は、<a href="https://lin.ee/nSBG5aT" target="_blank" rel="noopener">希望日時をLINEで相談する</a></p>
 <div id="selectedSlotText" class="selected" role="status" aria-live="polite"></div><input type="hidden" id="reservationDate" name="予約日"><input type="hidden" id="selectedTime" name="予約時間"><input type="hidden" id="selectedDatetimeLabel" name="予約日時"><input type="hidden" id="reservationId" name="受付番号"></div>
@@ -64,31 +68,23 @@ function japanNow(){const p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Toky
 function futureSlots(date){const a=availableSlots[date];if(!Array.isArray(a))return[];const now=japanNow();return date!==now.date?a:a.filter(t=>{const m=String(t).match(/^(\d{1,2}):(\d{2})/);return !m||(+m[1]*60 + +m[2]>now.minutes)})}
 function formatDate(date){return new Intl.DateTimeFormat('ja-JP',{month:'numeric',day:'numeric',weekday:'short'}).format(new Date(date+'T00:00:00'))}
 function setMessage(text){const e=byId('reservationMessage');e.textContent=text;e.style.display='block'}function clearMessage(){const e=byId('reservationMessage');e.textContent='';e.style.display='none'}
-function resetTime(){byId('quickSlots').querySelectorAll('.slot-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});selectedTime.value='';selectedDatetimeLabel.value='';selectedSlotText.textContent='';slotArea.replaceChildren();submitButton.disabled=true}
-function renderTimes(date){resetTime();const times=futureSlots(date);if(!times.length){slotArea.textContent='この日の予約可能時間はありません。';return}const groups=[['午前',t=>+t.slice(0,2)<12],['午後',t=>+t.slice(0,2)>=12&&+t.slice(0,2)<18],['夜間',t=>+t.slice(0,2)>=18]];const fragment=document.createDocumentFragment();groups.forEach(([label,matches])=>{const groupTimes=times.filter(matches);if(!groupTimes.length)return;const heading=document.createElement('h3');heading.className='slot-group-title';heading.textContent=label+'（'+groupTimes.length+'枠）';fragment.appendChild(heading);const grid=document.createElement('div');grid.className='slot-grid';groupTimes.forEach(time=>{const b=document.createElement('button');b.type='button';b.className='slot-btn';b.textContent=time;b.setAttribute('aria-pressed','false');b.onclick=()=>chooseSlot(date,time,b);grid.appendChild(b)});fragment.appendChild(grid)});slotArea.replaceChildren(fragment)}
-function selectDate(date,button,track=true){reservationDate.value=date;dateOptions.querySelectorAll('.date-option').forEach(x=>x.classList.remove('active'));button.classList.add('active');renderTimes(date);if(track)trackEvent('date_selected',{reservation_date:date})}
+function resetTime(){selectedTime.value='';selectedDatetimeLabel.value='';selectedSlotText.textContent='';slotArea.replaceChildren();submitButton.disabled=true}
+function renderTimes(date){resetTime();byId('timeHeadingText').textContent=formatDate(date)+' の時間を選ぶ';const times=futureSlots(date);if(!times.length){slotArea.textContent='この日の予約可能時間はありません。';return}const groups=[['午前',t=>+t.slice(0,2)<12],['午後',t=>+t.slice(0,2)>=12&&+t.slice(0,2)<18],['夜間',t=>+t.slice(0,2)>=18]];const fragment=document.createDocumentFragment();groups.forEach(([label,matches])=>{const groupTimes=times.filter(matches);if(!groupTimes.length)return;const heading=document.createElement('h3');heading.className='slot-group-title';heading.textContent=label+'（'+groupTimes.length+'枠）';fragment.appendChild(heading);const grid=document.createElement('div');grid.className='slot-grid';groupTimes.forEach(time=>{const b=document.createElement('button');b.type='button';b.className='slot-btn';b.textContent=time.replace('-', '〜');b.setAttribute('aria-label',formatDate(date)+' '+time.replace('-', '〜'));b.setAttribute('aria-pressed','false');b.onclick=()=>chooseSlot(date,time,b);grid.appendChild(b)});fragment.appendChild(grid)});slotArea.replaceChildren(fragment)}
+function selectDate(date,button,track=true){reservationDate.value=date;dateOptions.querySelectorAll('.date-option').forEach(x=>{x.classList.remove('active');x.setAttribute('aria-pressed','false')});button.setAttribute('aria-pressed','true');button.classList.add('active');renderTimes(date);if(track)trackEvent('date_selected',{reservation_date:date})}
 
 function chooseSlot(date,time,button){
   if(!futureSlots(date).includes(time)){loadingMessage.hidden=false;loadingMessage.textContent='この日時は受付時間を過ぎました。ほかの日時をお選びください。';loadSlots();return}
   reservationDate.value=date;selectedTime.value=time;selectedDatetimeLabel.value=date+' '+time;
   document.querySelectorAll('.slot-btn').forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
-  dateOptions.querySelectorAll('.date-option').forEach(b=>b.classList.toggle('active',b.dataset.date===date));
+  dateOptions.querySelectorAll('.date-option').forEach(b=>{b.classList.toggle('active',b.dataset.date===date);b.setAttribute('aria-pressed',String(b.dataset.date===date))});
   button.classList.add('active');button.setAttribute('aria-pressed','true');
-  selectedSlotText.textContent='選択中：'+formatDate(date)+' '+time;submitButton.disabled=false;
+  const caption=document.createElement('span');caption.className='selection-label';caption.textContent='選択した予約日時';const value=document.createElement('strong');value.textContent=formatDate(date)+' '+time.replace('-', '〜');selectedSlotText.replaceChildren(caption,value);submitButton.disabled=false;
   trackStage('slot_selected',{reservation_date:date,reservation_time:time});
 }
-function renderQuickSlots(dates){
-  const slots=dates.flatMap(date=>futureSlots(date).map(time=>({date,time}))).slice(0,3);
-  byId('quickSlots').replaceChildren();
-  slots.forEach(({date,time})=>{const b=document.createElement('button');b.type='button';b.className='slot-btn quick-slot';b.setAttribute('aria-pressed','false');
-  const label=document.createElement('span');label.textContent=formatDate(date);b.append(label,document.createTextNode(time));b.onclick=()=>chooseSlot(date,time,b);byId('quickSlots').appendChild(b)});
-}
-byId('moreDatesButton').onclick=()=>{const area=byId('allDates'),open=area.hidden;area.hidden=!open;byId('moreDatesButton').setAttribute('aria-expanded',String(open));byId('moreDatesButton').textContent=open?'ほかの日時を閉じる':'ほかの日時を見る';if(open)trackEvent('reservation_more_dates_open')};
 byId('retrySlots').onclick=loadSlots;
 async function loadSlots(){
-  resetTime();reservationDate.value='';dateOptions.replaceChildren();byId('quickSlots').replaceChildren();
-  byId('moreDatesButton').hidden=true;byId('retrySlots').hidden=true;byId('allDates').hidden=true;
-  byId('moreDatesButton').setAttribute('aria-expanded','false');byId('moreDatesButton').textContent='ほかの日時を見る';
+  resetTime();reservationDate.value='';dateOptions.replaceChildren();byId('timeHeadingText').textContent='時間を選ぶ';
+  byId('retrySlots').hidden=true;byId('allDates').hidden=true;
   loadingMessage.hidden=false;loadingMessage.textContent='空き日時を読み込み中です…';
   const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),12000);
   try{
@@ -101,10 +97,9 @@ async function loadSlots(){
     }
     availableSlots=normalized;const today=japanNow().date,dates=Object.keys(availableSlots).filter(d=>d>=today&&futureSlots(d).length).sort();
     if(!dates.length){loadingMessage.textContent='現在、空き枠がありません。希望日時をLINEでご相談ください。';byId('retrySlots').hidden=false;trackEvent('reservation_no_available_slots');return}
-    renderQuickSlots(dates);
-    dates.forEach(d=>{const b=document.createElement('button');b.type='button';b.className='date-option';b.dataset.date=d;b.innerHTML=formatDate(d)+'<small>空き '+futureSlots(d).length+'枠</small>';b.onclick=()=>selectDate(d,b);dateOptions.appendChild(b)});
-    selectDate(dates[0],dateOptions.firstElementChild,false);loadingMessage.hidden=true;byId('moreDatesButton').hidden=false;
-    trackStage('reservation_slots_loaded',{available_date_count:dates.length,tracking_version:'2026-10-11-quick-slots'});
+    dates.forEach(d=>{const b=document.createElement('button');b.type='button';b.className='date-option';b.dataset.date=d;b.dataset.weekday=String(new Date(d+'T12:00:00+09:00').getUTCDay());b.setAttribute('aria-pressed','false');b.innerHTML='<span class="date-label">'+formatDate(d)+'</span><small>空き '+futureSlots(d).length+'枠</small>';b.onclick=()=>selectDate(d,b);dateOptions.appendChild(b)});
+    selectDate(dates[0],dateOptions.firstElementChild,false);loadingMessage.hidden=true;byId('allDates').hidden=false;
+    trackStage('reservation_slots_loaded',{available_date_count:dates.length,tracking_version:'2026-10-28-date-first'});
   }catch(e){availableSlots={};loadingMessage.textContent='空き日時を取得できませんでした。再読み込みするか、LINEでご相談ください。';byId('retrySlots').hidden=false;trackEvent('reservation_slots_load_error')}
   finally{clearTimeout(timer)}
 }
