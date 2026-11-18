@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>도쿄 긴자 대면 진료 안내 | 그란 에터니티 긴자 클리닉</title>
+  <meta name="description" content="일본 여행 중 도쿄 긴자에서 대면 진료를 원하시는 분을 위한 안내입니다. 방문 예약 문의, 진료 준비물, 진료소 위치를 한국어로 확인하실 수 있습니다.">
+  <link rel="canonical" href="https://ge-ginza.clinic/ko/">
+  <meta name="theme-color" content="#f8f5f0">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="도쿄 긴자 대면 진료 안내 | 그란 에터니티 긴자 클리닉">
+  <meta property="og:description" content="방문 예약 문의, 진료 준비물, 진료소 위치를 한국어로 확인하세요.">
+  <meta property="og:url" content="https://ge-ginza.clinic/ko/">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f8f5f0;
+      --white: #fffdfa;
+      --ink: #1d3031;
+      --muted: #506263;
+      --teal: #15565a;
+      --line: #d9e1da;
+      --mist: #e8efea;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-padding-top: 1rem; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 1rem/1.75 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+    a { color: var(--teal); text-underline-offset: .2em; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #227b85; outline-offset: 4px; }
+    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3 { line-height: 1.28; }
+    h2 { font-size: clamp(1.45rem, 3vw, 1.9rem); letter-spacing: -.04em; }
+    h3 { font-size: 1.06rem; }
+    .wrap { width: min(100% - 2.5rem, 65rem); margin-inline: auto; }
+    .site-header { border-bottom: 1px solid var(--line); }
+    .header-inner, .site-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1.5rem; padding-block: 1rem; }
+    .brand { font-size: .95rem; font-weight: 750; }
+    .header-inner a { font-size: .9rem; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.13fr 1fr;
+      align-items: center;
+      gap: clamp(1.5rem, 5vw, 4rem);
+      padding-block: clamp(2.5rem, 7vw, 5.5rem);
+    }
+    h1 { font-size: clamp(2.2rem, 5.7vw, 4.5rem); letter-spacing: -.065em; }
+    .intro { margin-top: 1.125rem; color: var(--muted); max-width: 31rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border: 1px solid var(--teal);
+      border-radius: .45rem;
+      padding: .55rem 1rem;
+      font: inherit;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--teal);
+      background: transparent;
+      cursor: pointer;
+      text-align: center;
+    }
+    [hidden] { display: none; }
+    .button:hover { background: var(--mist); }
+    .primary { background: var(--teal); color: #fff; }
+    .primary:hover { background: #0d4246; }
+    .location {
+      background: var(--mist);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: clamp(1.25rem, 4vw, 2rem);
+    }
+    .location address { font-style: normal; margin-block: .8rem .25rem; }
+    .street { display: block; color: var(--muted); font-size: .9rem; }
+    .location .actions { margin-top: .9rem; }
+    .section { border-top: 1px solid var(--line); padding-block: clamp(1.65rem, 5vw, 3.25rem); }
+    .steps { padding: 0; margin: 1.25rem 0 0; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .steps li { border: 1px solid var(--line); border-radius: .7rem; background: var(--white); padding: 1.15rem; }
+    .steps p { margin-top: .5rem; color: var(--muted); }
+    .booking { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 2.75rem; }
+    .booking p { margin-top: .7rem; color: var(--muted); }
+    .message { background: var(--white); border: 1px solid var(--line); border-radius: .7rem; padding: 1.15rem; }
+    .message pre { margin-block: .6rem 0; font: inherit; white-space: pre-wrap; }
+    .message .actions { margin-top: .75rem; align-items: center; }
+    .status { color: var(--muted); font-size: .9rem; }
+    .site-footer { border-top: 1px solid var(--line); font-size: .84rem; color: var(--muted); }
+    @media (max-width: 700px) {
+      .hero, .booking, .steps { grid-template-columns: 1fr; }
+      .hero { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <p class="brand">그란 에터니티 긴자 클리닉</p>
+      <a href="/" lang="ja" hreflang="ja">日本語サイト</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">도쿄 긴자<br>대면 진료 안내</h1>
+        <p class="intro">일본 여행 중 내과 진료나 복용 중인 약에 대한 상담이 필요하신가요? 방문 전에 가능한 진료 날짜와 언어 지원 여부를 문의해 주세요.</p>
+        <div class="actions">
+          <a class="button primary" href="#booking">대면 진료 예약 문의</a>
+          <a class="button" href="#location">위치 확인</a>
+        </div>
+      </div>
+      <section class="location" id="location" aria-labelledby="location-title">
+        <h2 id="location-title">오시는 길</h2>
+        <address>
+          도쿄도 주오구 긴자 1-20-14<br>긴자 NK 빌딩 301호
+          <span class="street" lang="ja">東京都中央区銀座1-20-14 銀座NKビル301</span>
+        </address>
+        <p><a href="tel:+81335286320">+81 3-3528-6320</a></p>
+        <div class="actions">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=1-20-14%20Ginza%2C%20Chuo%20City%2C%20Tokyo">Google 지도에서 보기</a>
+        </div>
+      </section>
+    </section>
+    <section class="section" aria-labelledby="visit-title">
+      <h2 id="visit-title">진료 절차</h2>
+      <ol class="steps" role="list">
+        <li>
+          <h3>방문 날짜 문의</h3>
+          <p>공식 LINE이나 전화로 희망 날짜를 알려 주세요. 방문 가능 시간, 진료에 사용할 언어와 비용을 미리 확인해 주세요.</p>
+        </li>
+        <li>
+          <h3>예약 시간에 내원</h3>
+          <p>여권과 복용 중인 약의 목록을 가져와 주세요. 한국에서 받은 처방전이나 진료 기록이 있다면 함께 가져와 주세요.</p>
+        </li>
+        <li>
+          <h3>의사와 대면 상담</h3>
+          <p>의사가 진찰한 뒤 처방 여부와 용량을 결정합니다. 처방 시 약을 받는 방법과 보관 방법을 확인해 주세요.</p>
+        </li>
+      </ol>
+    </section>
+    <section class="section booking" id="booking" aria-labelledby="booking-title">
+      <div>
+        <h2 id="booking-title">대면 진료 예약 문의</h2>
+        <p>공식 LINE 또는 전화로 문의하실 수 있습니다. 병원에서 방문 시간을 안내한 뒤 예약이 확정됩니다. 한국어 통역이 필요하시면 문의할 때 알려 주세요.</p>
+        <div class="actions">
+          <a class="button primary" href="https://lin.ee/nSBG5aT">공식 LINE 열기</a>
+          <a class="button" href="tel:+81335286320">전화로 문의</a>
+        </div>
+        <p>예약 문의 메시지에는 여권 번호나 의료 기록을 첨부하지 마세요.</p>
+      </div>
+      <div class="message">
+        <h3 id="message-title">LINE에 보낼 예약 문의 문구</h3>
+        <pre id="line-message" lang="ja">銀座での対面診療を希望します。
+訪日予定：
+来院希望日時：
+希望する診察言語：
+費用と予約可能な日時を教えてください。</pre>
+        <div class="actions">
+          <button type="button" class="button" id="copy-message" hidden>문구 복사</button>
+          <span class="status" id="copy-status" role="status"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="wrap site-footer">
+    <span lang="en">GRANDETERNITY GINZA CLINIC</span>
+    <span lang="ja">グランエタニティ銀座クリニック</span>
+  </footer>
+  <script>
+    const copyButton = document.getElementById('copy-message');
+    const message = document.getElementById('line-message');
+    const copyStatus = document.getElementById('copy-status');
+
+    if (navigator.clipboard?.writeText) {
+      copyButton.hidden = false;
+      copyButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(message.textContent.trim());
+          copyStatus.textContent = '복사했습니다. LINE에 붙여넣어 주세요.';
+        } catch {
+          copyStatus.textContent = '위 문구를 직접 선택해 복사해 주세요.';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
