@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>대면 진료 예약 신청 | 그란 에터니티 긴자 클리닉</title>
+  <meta name="description" content="도쿄 긴자 대면 진료를 예약 신청하세요. 평일 20:00–21:00, 토요일 14:00–17:00, 30분 단위.">
+  <link rel="canonical" href="https://ge-ginza.clinic/ko/reservation/">
+  <meta name="theme-color" content="#f8f5f0">
+  <style>
+    :root { color-scheme: light; --bg: #f8f5f0; --surface: #fffdfa; --ink: #1d3031; --muted: #506263; --accent: #15565a; --line: #b6c5bd; --mist: #e8efea; }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; color: var(--ink); background: var(--bg); font: 1rem/1.65 system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; word-break: keep-all; }
+    a { color: var(--accent); text-underline-offset: .2em; }
+    :focus-visible { outline: 3px solid #227b85; outline-offset: 3px; }
+    .wrap { width: min(100% - 2rem, 47rem); margin-inline: auto; }
+    header { padding-block: 1.1rem; border-bottom: 1px solid var(--line); }
+    main { padding-block: clamp(1.5rem, 6vw, 3.25rem); }
+    h1 { font-size: clamp(1.9rem, 5vw, 3.15rem); line-height: 1.2; letter-spacing: -.05em; }
+    h1, h2, p { margin: 0; }
+    .lead { margin-top: .6rem; color: var(--muted); }
+    .schedule { margin-block: 1rem 1.4rem; padding: .85rem 1rem; background: var(--mist); border-radius: .55rem; display: flex; flex-wrap: wrap; gap: .2rem 1rem; }
+    .panel { border: 1px solid var(--line); border-radius: .85rem; padding: clamp(1rem, 4vw, 1.8rem); background: var(--surface); }
+    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-block: 1.2rem; }
+    .fields > div { min-width: 0; }
+    label, legend { font-weight: 700; }
+    label + small { display: block; color: var(--muted); }
+    select, input:not([type=radio]):not([type=checkbox]) { display: block; width: 100%; min-height: 48px; margin-top: .35rem; padding: .55rem .7rem; border: 1px solid var(--line); border-radius: .35rem; background: white; color: var(--ink); font: inherit; }
+    fieldset { padding: 0; margin: 1rem 0 0; border: 0; min-width: 0; }
+    .times { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .55rem; margin-top: .45rem; }
+    .time { display: flex; align-items: center; justify-content: center; gap: .35rem; min-height: 46px; padding: .2rem; border: 1px solid var(--line); border-radius: .4rem; background: white; font-weight: 600; white-space: nowrap; cursor: pointer; }
+    .time:has(input:checked) { border-color: var(--accent); background: var(--mist); }
+    .consent { display: flex; align-items: flex-start; gap: .5rem; font-weight: 500; }
+    .consent input { margin-top: .38rem; }
+    .muted { color: var(--muted); }
+    button { margin-top: 1rem; min-height: 48px; border: 0; border-radius: .4rem; padding: .65rem 1.1rem; background: var(--accent); color: white; font: inherit; font-weight: 700; cursor: pointer; }
+    button:disabled { opacity: .65; cursor: wait; }
+    #status { margin-top: .65rem; }
+    #status[data-error] { color: #a22525; }
+    .result { padding-top: 1rem; }
+    .result p { margin-top: .55rem; }
+    footer { margin-top: 1.15rem; display: flex; flex-wrap: wrap; gap: .4rem 1rem; }
+    @media (max-width: 540px) { .fields { grid-template-columns: 1fr; } .times { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><a href="/ko/">그란 에터니티 긴자 클리닉</a></div></header>
+  <main class="wrap">
+    <h1>대면 진료 예약 신청</h1>
+    <p class="lead">도쿄 긴자에서 진료받기 원하는 날짜와 시간을 선택해 주세요. 병원에서 이메일로 확정 안내를 보낸 뒤 예약이 완료됩니다.</p>
+    <div class="schedule">
+      <span><strong>평일 · 일본 공휴일 제외</strong> 20:00–21:00</span>
+      <span><strong>토요일</strong> 14:00–17:00</span>
+      <span><strong>30분 단위</strong> · 일본 시간</span>
+    </div>
+    <div class="panel">
+      <form id="booking-form" hidden>
+        <label for="visit-date">희망 날짜</label>
+        <select id="visit-date" required></select>
+        <fieldset>
+          <legend>희망 시간 · 일본 시간</legend>
+          <div class="times" id="visit-times"></div>
+        </fieldset>
+        <div class="fields">
+          <div>
+            <label for="patient-name">이름</label>
+            <input id="patient-name" name="お名前" autocomplete="name" maxlength="100" required>
+          </div>
+          <div>
+            <label for="patient-email">이메일</label>
+            <input id="patient-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+          </div>
+        </div>
+        <label class="consent"><input type="checkbox" required> 예약 신청과 회신을 위한 이름 및 이메일 주소의 이용에 동의합니다.</label>
+        <button id="submit-booking" type="submit">예약 신청 보내기</button>
+      </form>
+      <p id="status" role="status" aria-live="polite" tabindex="-1"></p>
+      <section class="result" id="received" hidden tabindex="-1">
+        <h2>예약 신청이 접수되었습니다</h2>
+        <p id="receipt"></p>
+        <p>예약 확정은 병원의 이메일 회신을 확인해 주세요. 받은편지함과 스팸함을 확인해 주세요.</p>
+      </section>
+      <noscript>웹 예약 신청을 이용하시려면 JavaScript를 켜 주세요. 아래 공식 LINE 또는 전화로도 문의하실 수 있습니다.</noscript>
+    </div>
+    <footer>
+      <a href="/ko/#location">진료소 위치</a>
+      <a href="https://lin.ee/nSBG5aT">공식 LINE 문의</a>
+      <a href="tel:+81335286320">전화 +81 3-3528-6320</a>
+    </footer>
+  </main>
+  <script>
+    const endpoint = 'https://formspree.io/f/mgonvroj';
+    // Published dates: https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html
+    const publicHolidays = new Set([
+      '2026-01-01', '2026-01-12', '2026-02-11', '2026-02-23', '2026-03-20', '2026-04-29',
+      '2026-05-03', '2026-05-04', '2026-05-05', '2026-05-06', '2026-07-20', '2026-08-11',
+      '2026-09-21', '2026-09-22', '2026-09-23', '2026-10-12', '2026-11-03', '2026-11-23',
+      '2027-01-01', '2027-01-11', '2027-02-11', '2027-02-23', '2027-03-21', '2027-03-22',
+      '2027-04-29', '2027-05-03', '2027-05-04', '2027-05-05', '2027-07-19', '2027-08-11',
+      '2027-09-20', '2027-09-23', '2027-10-11', '2027-11-03', '2027-11-23'
+    ]);
+    const tokyoDate = new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' });
+    const koreanDate = new Intl.DateTimeFormat('ko-KR', { timeZone: 'Asia/Tokyo', month: 'long', day: 'numeric', weekday: 'short' });
+    const form = document.getElementById('booking-form');
+    const dateInput = document.getElementById('visit-date');
+    const times = document.getElementById('visit-times');
+    const submit = document.getElementById('submit-booking');
+    const status = document.getElementById('status');
+    const received = document.getElementById('received');
+    let requestId = '';
+    let requestKey = '';
+    let sending = false;
+
+    function timeLabel(minutes) {
+      return String(Math.floor(minutes / 60)).padStart(2, '0') + ':' + String(minutes % 60).padStart(2, '0');
+    }
+
+    function upcomingDates(now) {
+      const today = new Date(tokyoDate.format(now) + 'T00:00:00Z');
+      const openings = [];
+      for (let offset = 0; offset < 60; offset += 1) {
+        const day = new Date(today);
+        day.setUTCDate(today.getUTCDate() + offset);
+        const weekday = day.getUTCDay();
+        const date = day.toISOString().slice(0, 10);
+        if (weekday === 0 || (weekday !== 6 && publicHolidays.has(date))) continue;
+        const first = weekday === 6 ? 14 * 60 : 20 * 60;
+        const last = weekday === 6 ? 17 * 60 : 21 * 60;
+        const slots = [];
+        for (let minute = first; minute < last; minute += 30) {
+          const start = timeLabel(minute);
+          if (new Date(date + 'T' + start + ':00+09:00') > now) {
+            slots.push({ start, label: start + '–' + timeLabel(minute + 30) });
+          }
+        }
+        if (slots.length) openings.push({ date, label: koreanDate.format(day), slots });
+      }
+      return openings;
+    }
+
+    function showTimes(openings) {
+      const day = openings.find(option => option.date === dateInput.value);
+      times.replaceChildren();
+      if (!day) return;
+      for (const slot of day.slots) {
+        const label = document.createElement('label');
+        label.className = 'time';
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'slot';
+        radio.value = slot.start;
+        radio.required = true;
+        label.append(radio, slot.label);
+        times.append(label);
+      }
+    }
+
+    function refreshDates(openings) {
+      const previous = dateInput.value;
+      dateInput.replaceChildren(...openings.map(day => new Option(day.label, day.date)));
+      if (openings.some(day => day.date === previous)) dateInput.value = previous;
+      showTimes(openings);
+    }
+
+    dateInput.addEventListener('change', () => showTimes(upcomingDates(new Date())));
+    form.addEventListener('submit', async event => {
+      event.preventDefault();
+      if (sending) return;
+      status.textContent = '';
+      status.removeAttribute('data-error');
+
+      const data = new FormData(form);
+      const openings = upcomingDates(new Date());
+      const date = dateInput.value;
+      const day = openings.find(option => option.date === date);
+      const selected = day?.slots.find(slot => slot.start === data.get('slot'));
+      const name = data.get('お名前').trim();
+      const email = data.get('email').trim();
+      if (!selected || !name) {
+        if (!selected) refreshDates(openings);
+        status.setAttribute('data-error', '');
+        status.textContent = !selected ? '해당 시간이 지났습니다. 다른 시간을 선택해 주세요.' : '이름을 입력해 주세요.';
+        status.focus();
+        return;
+      }
+
+      const key = JSON.stringify([date, selected.start, name, email]);
+      if (key !== requestKey) {
+        requestKey = key;
+        requestId = 'GE-KO-' + crypto.randomUUID().slice(0, 12).toUpperCase();
+      }
+      const submission = new FormData();
+      for (const [field, value] of Object.entries({
+        subject: '【韓国語サイト・対面診療】予約申込 ' + date + ' ' + selected.start,
+        予約区分: '銀座・対面診療（韓国語サイト）',
+        予約日: date,
+        予約時間: selected.label + ' JST',
+        受付番号: requestId,
+        お名前: name,
+        email,
+        個人情報同意: '同意'
+      })) {
+        submission.append(field, value);
+      }
+
+      sending = true;
+      submit.disabled = true;
+      status.textContent = '예약 신청을 보내는 중입니다…';
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: submission,
+          headers: { Accept: 'application/json' },
+          signal: AbortSignal.timeout(20000)
+        });
+        if (!response.ok) throw new Error('Submission failed');
+        document.getElementById('receipt').textContent = date + ' ' + selected.label + ' (일본 시간) · 접수번호 ' + requestId;
+        form.hidden = true;
+        status.textContent = '';
+        received.hidden = false;
+        received.focus();
+      } catch {
+        status.setAttribute('data-error', '');
+        status.textContent = '접수 여부를 확인하지 못했습니다. 다시 시도하거나 공식 LINE으로 문의해 주세요. 접수번호 ' + requestId;
+      } finally {
+        submit.disabled = false;
+        sending = false;
+      }
+    });
+
+    refreshDates(upcomingDates(new Date()));
+    form.hidden = false;
+  </script>
+</body>
+</html>
