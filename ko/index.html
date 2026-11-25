@@ -87,6 +87,11 @@
     .steps { padding: 0; margin: 1.25rem 0 0; list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
     .steps li { border: 1px solid var(--line); border-radius: .7rem; background: var(--white); padding: 1.15rem; }
     .steps p { margin-top: .5rem; color: var(--muted); }
+    .fees-table { width: min(100%, 29rem); margin-top: 1rem; border-collapse: collapse; background: var(--white); }
+    .fees-table th, .fees-table td { border-bottom: 1px solid var(--line); padding: .55rem .8rem; text-align: left; }
+    .fees-table thead { background: var(--mist); }
+    .fees-table tr > :last-child { text-align: right; white-space: nowrap; }
+    .fees-table td { font-variant-numeric: tabular-nums; }
     .online-note { margin-top: .85rem; color: var(--muted); }
     .booking { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem 2.75rem; }
     .booking p { margin-top: .7rem; color: var(--muted); }
@@ -116,6 +121,7 @@
         <div class="actions">
           <a class="button primary" href="/ko/reservation/">대면 진료 예약 신청</a>
           <a class="button" href="#online">온라인 진료·숙소 배송 안내</a>
+          <a class="button" href="#fees">마운자로 진료비</a>
         </div>
       </div>
       <section class="location" id="location" aria-labelledby="location-title">
@@ -153,12 +159,27 @@
       <p class="online-note">배송 가능 여부는 숙소의 수령 조건과 체류 일정에 따라 달라집니다.</p>
     </section>
     <section class="section" id="fees" aria-labelledby="fees-title">
-      <h2 id="fees-title">마운자로 비용 안내</h2>
-      <p class="online-note">마운자로는 비급여 진료로, 처방 여부와 용량은 진료 후 의사가 결정합니다.</p>
+      <h2 id="fees-title">마운자로 온라인 진료비</h2>
+      <p class="online-note"><time datetime="2026-11-24">2026년 11월 24일</time> 개정</p>
+      <table class="fees-table" aria-labelledby="fees-title">
+        <thead>
+          <tr><th scope="col">용량</th><th scope="col">4펜(4회분) 요금</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">2.5 mg</th><td>8,980엔</td></tr>
+          <tr><th scope="row">5 mg</th><td>15,800엔</td></tr>
+          <tr><th scope="row">7.5 mg</th><td>22,800엔</td></tr>
+          <tr><th scope="row">10 mg</th><td>28,900엔</td></tr>
+        </tbody>
+      </table>
+      <p class="online-note">세금 포함 · 일본 국내 배송비 무료 · 진찰료 무료</p>
+      <p class="online-note">일본 공적 건강보험이 적용되지 않는 비급여 진료입니다. 처방 여부와 용량은 진료 후 의사가 결정합니다.</p>
       <div class="actions">
         <a class="button" href="https://extl2.github.io/mounjaro_flow/ryoukinhyou.html" hreflang="ja">마운자로 요금표 보기（일본어）</a>
       </div>
-      <p class="online-note">1회 처방에 대한 마운자로 약제비 결제액 50,000엔(세금 포함)마다 인체 줄기세포 배양액을 보습 성분으로 함유한 세럼 <a href="https://full-eternity.com" hreflang="ja">FULL ETERNITY</a>(25mL) 1병을 드립니다. 예를 들어 한 번에 100,000엔을 결제하시면 2병을 드립니다.</p>
+      <p class="online-note">1회 처방에 대한 마운자로 약제비 결제액이 45,000엔(세금 포함) 이상인 경우 <a href="https://full-eternity.com" hreflang="ja">FULL ETERNITY</a> 세럼(25mL) 1병을 드립니다.</p>
+      <p class="online-note">마운자로(티르제파타이드)는 일본에서 제2형 당뇨병 치료제로 승인되었으며, 체중 감량 목적으로 사용하면 승인 범위를 벗어납니다. 당원은 일본 내 의약품 도매업체를 통해 공급받습니다. 일본에서는 같은 성분의 젭바운드가 일정 기준을 충족하는 비만증 치료에 승인되어 있습니다.</p>
+      <p class="online-note">주요 부작용으로 메스꺼움, 구토, 설사, 변비 등이 있으며 저혈당이나 급성 췌장염 등 중대한 부작용도 발생할 수 있습니다. 승인 범위를 벗어난 사용으로 인한 피해는 일본의 의약품 부작용 피해 구제 제도의 대상에서 제외될 수 있습니다. <a href="https://www.pmda.go.jp/files/000283397.pdf" hreflang="ja">일본 의약품의료기기종합기구(PMDA)의 안전성 안내（일본어）</a></p>
     </section>
     <section class="section" aria-labelledby="visit-title">
       <h2 id="visit-title">대면 진료 절차</h2>
